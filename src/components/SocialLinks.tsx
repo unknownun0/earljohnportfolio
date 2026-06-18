@@ -42,10 +42,10 @@ export default function SocialLinks() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -6, scale: 1.05 }}
-                className="bg-[#151515] border border-white/20 rounded-2xl p-5 hover:border-[#6C63FF]/40 hover:bg-[#1E1E1E] transition-all duration-300 group flex flex-col items-center gap-2 min-w-[100px]"
+                className="bg-[#151515] border border-white/20 rounded-2xl p-5 hover:border-[#EF4444]/40 hover:bg-[#1E1E1E] transition-all duration-300 group flex flex-col items-center gap-2 min-w-[100px]"
               >
-                <IconComponent className="w-6 h-6 text-[#888] group-hover:text-[#6C63FF] transition-colors duration-300" />
-                <span className="text-xs text-[#888] group-hover:text-[#6C63FF] transition-colors duration-300">
+                <IconComponent className="w-6 h-6 text-[#888] group-hover:text-[#EF4444] transition-colors duration-300" />
+                <span className="text-xs text-[#888] group-hover:text-[#EF4444] transition-colors duration-300">
                   {social.label}
                 </span>
               </motion.a>

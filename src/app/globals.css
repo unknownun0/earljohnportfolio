@@ -4,8 +4,8 @@
   --color-background: #0B0B0B;
   --color-card: #151515;
   --color-card-hover: #1E1E1E;
-  --color-accent: #6C63FF;
-  --color-accent-hover: #8B85FF;
+  --color-accent: #EF4444;
+  --color-accent-hover: #B91C1C;
   --color-muted: #888888;
   --color-border: rgba(255, 255, 255, 0.2);
   --font-sans: "Inter", sans-serif;
@@ -24,7 +24,7 @@ body {
 }
 
 ::selection {
-  background: #6C63FF;
+  background: #EF4444;
   color: #ffffff;
 }
 

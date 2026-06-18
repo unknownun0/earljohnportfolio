@@ -57,7 +57,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
             {project.featured && (
               <div className="absolute top-4 left-4">
-                <span className="text-xs font-medium text-[#6C63FF] bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span className="text-xs font-medium text-[#EF4444] bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
                   Featured
                 </span>
               </div>
@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 {project.title}
               </h2>
-              <div className="w-12 h-1 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full" />
+              <div className="w-12 h-1 bg-gradient-to-r from-[#EF4444] to-[#DC2626] rounded-full" />
             </div>
 
             <p className="text-[#888] leading-relaxed">
@@ -85,7 +85,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-sm text-[#6C63FF] bg-[#6C63FF]/10 px-4 py-1.5 rounded-full"
+                      className="text-sm text-[#EF4444] bg-[#EF4444]/10 px-4 py-1.5 rounded-full"
                     >
                       {tag}
                     </span>

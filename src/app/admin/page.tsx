@@ -93,11 +93,11 @@ export default function AdminPage() {
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleLogin()}
             placeholder="Password"
-            className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF] mb-4"
+            className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#EF4444] mb-4"
           />
           <button
             onClick={handleLogin}
-            className="w-full bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] text-white font-semibold rounded-xl py-3 hover:opacity-90 transition-opacity"
+            className="w-full bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white font-semibold rounded-xl py-3 hover:opacity-90 transition-opacity"
           >
             Login
           </button>
@@ -132,7 +132,7 @@ export default function AdminPage() {
               onClick={() => setActiveSection(key as SectionTab)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all duration-200 ${
                 activeSection === key
-                  ? "bg-[#6C63FF]/10 text-[#6C63FF] border border-[#6C63FF]/20"
+                  ? "bg-[#EF4444]/10 text-[#EF4444] border border-[#EF4444]/20"
                   : "text-[#888] hover:text-white hover:bg-[#1E1E1E]"
               }`}
             >
@@ -144,7 +144,7 @@ export default function AdminPage() {
         <div className="p-4 border-t border-white/20 space-y-2">
           <button
             onClick={handleSave}
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] text-white font-semibold rounded-xl py-3 hover:opacity-90 transition-opacity text-sm"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white font-semibold rounded-xl py-3 hover:opacity-90 transition-opacity text-sm"
           >
             <Save className="w-4 h-4" />
             {saved ? "Saved!" : "Save Changes"}
@@ -172,7 +172,7 @@ export default function AdminPage() {
           <div className="flex gap-2">
             <button
               onClick={handleSave}
-              className="flex items-center gap-1 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] text-white text-sm font-semibold rounded-xl px-4 py-2"
+              className="flex items-center gap-1 bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white text-sm font-semibold rounded-xl px-4 py-2"
             >
               <Save className="w-4 h-4" />
               {saved ? "Saved" : "Save"}
@@ -258,14 +258,14 @@ function InputField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           rows={rows || 3}
-          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF] resize-y"
+          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#EF4444] resize-y"
         />
       ) : (
         <input
           type={type || "text"}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF]"
+          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#EF4444]"
         />
       )}
     </div>
@@ -326,7 +326,7 @@ function HeroEditor({
                   })
                 }
                 rows={2}
-                className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#6C63FF] resize-y"
+                className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#EF4444] resize-y"
               />
               <button
                 onClick={() =>
@@ -346,7 +346,7 @@ function HeroEditor({
             value={newAbout}
             onChange={(e) => setNewAbout(e.target.value)}
             placeholder="New paragraph..."
-            className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+            className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#EF4444]"
           />
           <button
             onClick={() => {
@@ -355,7 +355,7 @@ function HeroEditor({
                 setNewAbout("");
               }
             }}
-            className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] transition-colors"
+            className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] transition-colors"
           >
             Add
           </button>
@@ -387,7 +387,7 @@ function InterestsEditor({
                   d.interests[i] = e.target.value;
                 })
               }
-              className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+              className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#EF4444]"
             />
             <button
               onClick={() =>
@@ -407,7 +407,7 @@ function InterestsEditor({
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder="Add interest (e.g. 💻 Web Development)"
-          className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+          className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#EF4444]"
         />
         <button
           onClick={() => {
@@ -416,7 +416,7 @@ function InterestsEditor({
               setNewItem("");
             }
           }}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -449,7 +449,7 @@ function EducationEditor({
         <h3 className="text-2xl font-bold text-white">Education</h3>
         <button
           onClick={addItem}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -460,7 +460,7 @@ function EducationEditor({
           className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#6C63FF] font-medium">
+            <span className="text-sm text-[#EF4444] font-medium">
               #{i + 1}
             </span>
             <button
@@ -500,7 +500,7 @@ function EducationEditor({
                       draft.education[i].details[j] = e.target.value;
                     })
                   }
-                  className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+                  className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#EF4444]"
                 />
                 <button
                   onClick={() =>
@@ -520,7 +520,7 @@ function EducationEditor({
                   draft.education[i].details.push("");
                 })
               }
-              className="text-[#6C63FF] text-sm hover:underline"
+              className="text-[#EF4444] text-sm hover:underline"
             >
               + Add detail
             </button>
@@ -557,7 +557,7 @@ function ProjectsEditor({
         <h3 className="text-2xl font-bold text-white">Projects</h3>
         <button
           onClick={addItem}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -568,7 +568,7 @@ function ProjectsEditor({
           className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#6C63FF] font-medium">
+            <span className="text-sm text-[#EF4444] font-medium">
               #{i + 1}
             </span>
             <button
@@ -653,7 +653,7 @@ function ProjectsEditor({
                     e.currentTarget.value = "";
                   }
                 }}
-                className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+                className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#EF4444]"
               />
             </div>
           </div>
@@ -664,7 +664,7 @@ function ProjectsEditor({
               onChange={(e) =>
                 update((d) => (d.projects[i].featured = e.target.checked))
               }
-              className="accent-[#6C63FF]"
+              className="accent-[#EF4444]"
             />
             Featured project
           </label>
@@ -699,7 +699,7 @@ function ExperienceEditor({
         <h3 className="text-2xl font-bold text-white">Experience & Seminars</h3>
         <button
           onClick={addItem}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -710,7 +710,7 @@ function ExperienceEditor({
           className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#6C63FF] font-medium">
+            <span className="text-sm text-[#EF4444] font-medium">
               #{i + 1}
             </span>
             <button
@@ -784,7 +784,7 @@ function TechStackEditor({
         <h3 className="text-2xl font-bold text-white">Tech Stack</h3>
         <button
           onClick={addGroup}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add Group
         </button>
@@ -844,7 +844,7 @@ function TechStackEditor({
                     e.currentTarget.value = "";
                   }
                 }}
-                className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+                className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#EF4444]"
               />
             </div>
           </div>
@@ -878,7 +878,7 @@ function CertificationsEditor({
         <h3 className="text-2xl font-bold text-white">Certifications</h3>
         <button
           onClick={addItem}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -889,7 +889,7 @@ function CertificationsEditor({
           className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#6C63FF] font-medium">
+            <span className="text-sm text-[#EF4444] font-medium">
               #{i + 1}
             </span>
             <button
@@ -964,7 +964,7 @@ function ContactEditor({
         <h3 className="text-2xl font-bold text-white">Contact Info</h3>
         <button
           onClick={addItem}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -975,7 +975,7 @@ function ContactEditor({
           className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#6C63FF] font-medium">
+            <span className="text-sm text-[#EF4444] font-medium">
               #{i + 1}
             </span>
             <button
@@ -1038,7 +1038,7 @@ function SocialsEditor({
         <h3 className="text-2xl font-bold text-white">Social Links</h3>
         <button
           onClick={addItem}
-          className="bg-[#6C63FF] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#5A52E0] flex items-center gap-1"
+          className="bg-[#EF4444] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#B91C1C] flex items-center gap-1"
         >
           <Plus className="w-4 h-4" /> Add
         </button>
@@ -1049,7 +1049,7 @@ function SocialsEditor({
           className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#6C63FF] font-medium">
+            <span className="text-sm text-[#EF4444] font-medium">
               #{i + 1}
             </span>
             <button

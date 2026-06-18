@@ -27,16 +27,16 @@ export default function TechStack() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -4 }}
-              className="bg-[#151515] border border-white/20 rounded-3xl p-6 md:p-8 hover:border-[#6C63FF]/30 transition-all duration-300 group"
+              className="bg-[#151515] border border-white/20 rounded-3xl p-6 md:p-8 hover:border-[#EF4444]/30 transition-all duration-300 group"
             >
-              <h3 className="text-lg font-bold text-white mb-4 group-hover:text-[#6C63FF] transition-colors duration-300">
+              <h3 className="text-lg font-bold text-white mb-4 group-hover:text-[#EF4444] transition-colors duration-300">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="text-sm text-[#888] bg-[#1E1E1E] px-3 py-1.5 rounded-full hover:bg-[#6C63FF]/10 hover:text-[#6C63FF] hover:border-[#6C63FF]/30 border border-transparent transition-all duration-200 cursor-default"
+                    className="text-sm text-[#888] bg-[#1E1E1E] px-3 py-1.5 rounded-full hover:bg-[#EF4444]/10 hover:text-[#EF4444] hover:border-[#EF4444]/30 border border-transparent transition-all duration-200 cursor-default"
                   >
                     {item}
                   </span>

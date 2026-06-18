@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <a
             href="/admin"
-            className="text-sm text-[#888] hover:text-[#6C63FF] transition-colors duration-300"
+            className="text-sm text-[#888] hover:text-[#EF4444] transition-colors duration-300"
           >
             Admin
           </a>

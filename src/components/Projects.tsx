@@ -34,7 +34,7 @@ export default function Projects() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
                 onClick={() => setSelected(project)}
-                className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#6C63FF]/30 transition-all duration-300 group cursor-pointer"
+                className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#EF4444]/30 transition-all duration-300 group cursor-pointer"
               >
                 {(project.image || project.video) && (
                   <div className="relative h-48 overflow-hidden">
@@ -57,7 +57,7 @@ export default function Projects() {
                     )}
                     {project.featured && (
                       <div className="absolute top-3 right-3">
-                        <span className="text-xs font-medium text-[#6C63FF] bg-[#0B0B0B]/80 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-xs font-medium text-[#EF4444] bg-[#0B0B0B]/80 backdrop-blur-sm px-3 py-1 rounded-full">
                           Featured
                         </span>
                       </div>
@@ -66,11 +66,11 @@ export default function Projects() {
                 )}
                 <div className="p-6 md:p-8">
                   {!project.image && !project.video && (
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#6C63FF]/20 to-[#FF6B6B]/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                      <Code className="w-6 h-6 text-[#6C63FF]" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EF4444]/20 to-[#DC2626]/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                      <Code className="w-6 h-6 text-[#EF4444]" />
                     </div>
                   )}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#6C63FF] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#EF4444] transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-[#888] leading-relaxed mb-4 line-clamp-3">

@@ -25,7 +25,7 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <a
           href="#home"
-          className="text-lg font-bold bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] bg-clip-text text-transparent"
+          className="text-lg font-bold bg-gradient-to-r from-[#EF4444] to-[#DC2626] bg-clip-text text-transparent"
         >
           EJ
         </a>

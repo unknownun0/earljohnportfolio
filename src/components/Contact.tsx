@@ -37,16 +37,16 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="bg-[#151515] border border-white/20 rounded-3xl p-6 hover:border-[#6C63FF]/30 transition-all duration-300 group"
+                className="bg-[#151515] border border-white/20 rounded-3xl p-6 hover:border-[#EF4444]/30 transition-all duration-300 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6C63FF]/20 to-[#FF6B6B]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-5 h-5 text-[#6C63FF]" />
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EF4444]/20 to-[#DC2626]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-5 h-5 text-[#EF4444]" />
                 </div>
                 <p className="text-sm text-[#888] mb-1">{item.label}</p>
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-white font-medium hover:text-[#6C63FF] transition-colors duration-300"
+                    className="text-white font-medium hover:text-[#EF4444] transition-colors duration-300"
                   >
                     {item.value}
                   </a>

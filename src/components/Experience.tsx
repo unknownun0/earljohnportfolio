@@ -27,7 +27,7 @@ export default function Experience() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -4 }}
-              className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#6C63FF]/30 transition-all duration-300 group"
+              className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#EF4444]/30 transition-all duration-300 group"
             >
               {exp.image && (
                 <div className="h-40 overflow-hidden">
@@ -43,10 +43,10 @@ export default function Experience() {
                   {!exp.image && <div className="text-2xl">{exp.icon}</div>}
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#6C63FF] transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#EF4444] transition-colors duration-300">
                         {exp.title}
                       </h3>
-                      <span className="text-xs font-medium text-[#6C63FF] bg-[#6C63FF]/10 px-3 py-1 rounded-full whitespace-nowrap">
+                      <span className="text-xs font-medium text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full whitespace-nowrap">
                         {exp.type}
                       </span>
                     </div>
