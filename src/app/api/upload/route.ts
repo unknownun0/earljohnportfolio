@@ -14,12 +14,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "File too large" }, { status: 400 });
     }
 
+    // Try Vercel Blob first (works on production)
+    try {
+      const { put } = await import("@vercel/blob");
+      const blob = await put(file.name, file, { access: "public" });
+      return NextResponse.json({ url: blob.url });
+    } catch {}
+
+    // Fallback: save to public/uploads/ (works locally)
     const ext = file.name.split(".").pop() || "bin";
     const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
     const dir = path.join(process.cwd(), "public", "uploads");
 
     await mkdir(dir, { recursive: true });
-
     const buffer = Buffer.from(await file.arrayBuffer());
     await writeFile(path.join(dir, filename), buffer);
 
