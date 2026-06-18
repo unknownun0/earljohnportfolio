@@ -82,7 +82,7 @@ export const defaultContent: Content = {
       "Proficient in HTML, CSS, JavaScript, PHP, and basic AI integration, I enjoy combining creativity and technology to solve problems and deliver user-friendly solutions.",
       "I am passionate about learning and seeking opportunities to contribute my technical and creative skills to a dynamic, growth-oriented team.",
     ],
-    image: "/uploads/image/image.png",
+    image: "/uploads/image/profile.png",
   },
   interests: [
     "💻 Web Development",
@@ -152,7 +152,7 @@ export const defaultContent: Content = {
         "A memorial/home services website built with Next.js 14, React 18, and Tailwind CSS. Features a single-page layout with Navbar, Hero, StatsCounter, About, Services, MoreServices, WhyChooseUs, Gallery, Reviews, Contact form (Nodemailer), and scroll animations. Deployed via Vercel.",
       tags: ["Next.js", "React", "Tailwind CSS", "Nodemailer", "Vercel"],
       featured: false,
-      image: "/uploads/image/image.png",
+    image: "/uploads/image/profile.png",
       video: "",
       link: "https://memorial-cyan.vercel.app/",
     },
