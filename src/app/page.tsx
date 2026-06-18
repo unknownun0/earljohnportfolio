@@ -20,9 +20,11 @@ export default function Home() {
         <Hero />
       </section>
       <Interests />
-      <Education />
+      <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-6">
+        <Education />
+        <Experience />
+      </div>
       <Projects />
-      <Experience />
       <TechStack />
       <Certifications />
       <Contact />
