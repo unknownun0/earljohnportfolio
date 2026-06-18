@@ -116,26 +116,16 @@ export const defaultContent: Content = {
   projects: [
     {
       id: "1",
-      title: "Online Booking System",
+      title: "PhotoCabin",
       description:
-        "A web-based reservation platform designed to streamline appointment scheduling and customer management.",
-      tags: ["PHP", "MySQL", "JavaScript"],
+        "A photography booking & management system built with CodeIgniter 3/PHP. Features a public landing page with portfolio (image/video), packages, multi-step booking (date → package → details → venue → submit), date availability check, and OTP registration. Client portal includes a dashboard with booking timeline, accept quotes, upload payment proof, digitally sign contracts, rate/review, view albums, real-time chat with admin, and profile management. Admin panel handles full booking lifecycle, payment verification, auto-generated contracts, calendar view, package/add-on CRUD, portfolio management, client management, album/media management, real-time chat, SMTP settings, and gallery import. Notifications include email alerts for booking, quotation, payment, contract, OTP, and drive link sharing.",
+      tags: ["CodeIgniter", "PHP", "MySQL", "JavaScript", "Bootstrap", "AJAX"],
       featured: true,
-      image: "https://placehold.co/600x400/151515/EF4444?text=Booking+System",
-      video: "/uploads/video/romaoturs%20(1).mp4",
+      image: "https://placehold.co/600x400/151515/EF4444?text=PhotoCabin",
+      video: "/uploads/video/photocabin.mp4",
     },
     {
       id: "2",
-      title: "Calculator",
-      description:
-        "A responsive calculator application built using modern web technologies.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      featured: false,
-      image: "https://placehold.co/600x400/151515/EF4444?text=Calculator",
-      video: "",
-    },
-    {
-      id: "3",
       title: "Online Grading Management System",
       description:
         "A digital grading platform for managing student records, grades, and academic performance.",
@@ -143,6 +133,16 @@ export const defaultContent: Content = {
       featured: false,
       image: "https://placehold.co/600x400/151515/EF4444?text=Grading+System",
       video: "/uploads/video/sample%201.mp4",
+    },
+    {
+      id: "3",
+      title: "Calculator",
+      description:
+        "A responsive calculator application built using modern web technologies.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      featured: false,
+      image: "https://placehold.co/600x400/151515/EF4444?text=Calculator",
+      video: "",
     },
   ],
   experience: [
