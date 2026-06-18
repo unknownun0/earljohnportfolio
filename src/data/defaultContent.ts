@@ -136,6 +136,16 @@ export const defaultContent: Content = {
     },
     {
       id: "3",
+      title: "Roma Tour",
+      description:
+        "An online booking platform for bus private tours. Customers can browse tour packages, check availability, and book private bus tours with ease.",
+      tags: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+      featured: false,
+      image: "https://placehold.co/600x400/151515/EF4444?text=Roma+Tour",
+      video: "/uploads/video/romaoturs%20(1).mp4",
+    },
+    {
+      id: "4",
       title: "Calculator",
       description:
         "A responsive calculator application built using modern web technologies.",
