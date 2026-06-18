@@ -2,86 +2,11 @@
 
 import SectionWrapper from "./SectionWrapper";
 import { motion } from "framer-motion";
-
-const techStack = [
-  {
-    category: "Frontend",
-    items: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Vue.js",
-      "Tailwind CSS",
-      "SCSS",
-      "Styled Components",
-      "Vite",
-      "Webpack",
-      "ESLint",
-      "Prettier",
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      "Node.js",
-      "Python",
-      "Java",
-      "PHP",
-      "Express.js",
-      "NestJS",
-      "FastAPI",
-      "Spring Boot",
-      "Laravel",
-      "PostgreSQL",
-      "MySQL",
-    ],
-  },
-  {
-    category: "DevOps & Cloud",
-    items: ["AWS", "GitHub Actions", "GitLab CI", "AWS CloudFormation"],
-  },
-  {
-    category: "AI & Machine Learning",
-    items: [
-      "TensorFlow",
-      "PyTorch",
-      "LangChain",
-      "Transformers",
-      "OpenAI",
-    ],
-  },
-  {
-    category: "Security & Identity",
-    items: ["AWS IAM", "Auth0"],
-  },
-  {
-    category: "Developer Tools",
-    items: [
-      "Git",
-      "GitHub",
-      "GitLab",
-      "Bitbucket",
-      "VS Code",
-      "JetBrains IntelliJ",
-      "PyCharm",
-      "Discord",
-      "Teams",
-    ],
-  },
-  {
-    category: "CMS & No-Code",
-    items: [
-      "WordPress",
-      "Strapi",
-      "Bubble",
-      "Webflow",
-      "Microsoft Power Platform",
-    ],
-  },
-];
+import { useContent } from "@/context/ContentContext";
 
 export default function TechStack() {
+  const { content } = useContent();
+
   return (
     <SectionWrapper className="px-4 py-20" id="techstack">
       <div className="max-w-6xl mx-auto">
@@ -94,9 +19,9 @@ export default function TechStack() {
           Tech Stack
         </motion.h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {techStack.map((group, index) => (
+          {content.techStack.map((group, index) => (
             <motion.div
-              key={group.category}
+              key={group.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

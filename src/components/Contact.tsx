@@ -3,32 +3,18 @@
 import SectionWrapper from "./SectionWrapper";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, GraduationCap } from "lucide-react";
+import { useContent } from "@/context/ContentContext";
 
-const contactItems = [
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Las Piñas City, Philippines",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "earljohngomez66@gmail.com",
-    href: "mailto:earljohngomez66@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+63 ** ***",
-  },
-  {
-    icon: GraduationCap,
-    label: "Status",
-    value: "BS Information Systems Student",
-  },
-];
+const iconMap: Record<string, typeof MapPin> = {
+  MapPin,
+  Mail,
+  Phone,
+  GraduationCap,
+};
 
 export default function Contact() {
+  const { content } = useContent();
+
   return (
     <SectionWrapper className="px-4 py-20" id="contact">
       <div className="max-w-6xl mx-auto">
@@ -41,11 +27,11 @@ export default function Contact() {
           Contact
         </motion.h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {contactItems.map((item, index) => {
-            const IconComponent = item.icon;
+          {content.contact.map((item, index) => {
+            const IconComponent = iconMap[item.icon] || MapPin;
             return (
               <motion.div
-                key={item.label}
+                key={item.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

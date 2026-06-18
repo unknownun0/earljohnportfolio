@@ -15,9 +15,17 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} Earl John Gomez. All rights
           reserved.
         </p>
-        <p className="text-sm text-[#888]">
-          Built with Next.js & Tailwind CSS
-        </p>
+        <div className="flex items-center gap-4">
+          <a
+            href="/admin"
+            className="text-sm text-[#888] hover:text-[#6C63FF] transition-colors duration-300"
+          >
+            Admin
+          </a>
+          <p className="text-sm text-[#888]">
+            Built with Next.js & Tailwind CSS
+          </p>
+        </div>
       </div>
     </motion.footer>
   );

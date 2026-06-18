@@ -2,25 +2,21 @@
 
 import SectionWrapper from "./SectionWrapper";
 import { motion } from "framer-motion";
-import {
+import { Code2, Link2, Camera, Globe, Mail, User } from "lucide-react";
+import { useContent } from "@/context/ContentContext";
+
+const socialIconMap: Record<string, typeof Code2> = {
   Code2,
   Link2,
-  User,
   Camera,
   Globe,
   Mail,
-} from "lucide-react";
-
-const socials = [
-  { icon: Code2, label: "GitHub", href: "#" },
-  { icon: Link2, label: "LinkedIn", href: "#" },
-  { icon: User, label: "Facebook", href: "#" },
-  { icon: Camera, label: "Instagram", href: "#" },
-  { icon: Globe, label: "Portfolio", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:earljohngomez66@gmail.com" },
-];
+  User,
+};
 
 export default function SocialLinks() {
+  const { content } = useContent();
+
   return (
     <SectionWrapper className="px-4 pb-20" id="socials">
       <div className="max-w-6xl mx-auto">
@@ -33,11 +29,11 @@ export default function SocialLinks() {
           Connect
         </motion.h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {socials.map((social, index) => {
-            const IconComponent = social.icon;
+          {content.socials.map((social, index) => {
+            const IconComponent = socialIconMap[social.icon] || Globe;
             return (
               <motion.a
-                key={social.label}
+                key={social.id}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"

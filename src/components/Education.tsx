@@ -3,29 +3,11 @@
 import SectionWrapper from "./SectionWrapper";
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar } from "lucide-react";
-
-const education = [
-  {
-    school: "Dr. Filemon C. Aguilar Memorial College",
-    period: "2022 – Present",
-    degree: "Bachelor of Science in Information Systems",
-    details: ["PSITE Head Programmer (2023–2026)", "Currently Enrolled"],
-  },
-  {
-    school: "Zarate College",
-    period: "2020 – 2022",
-    degree: "ICT Strand",
-    details: ["ICT Vice President"],
-  },
-  {
-    school: "Captain Albert Aguilar National High School",
-    period: "2016 – 2020",
-    degree: "Completed Secondary Education",
-    details: [],
-  },
-];
+import { useContent } from "@/context/ContentContext";
 
 export default function Education() {
+  const { content } = useContent();
+
   return (
     <SectionWrapper className="px-4 py-20" id="education">
       <div className="max-w-4xl mx-auto">
@@ -40,9 +22,9 @@ export default function Education() {
         <div className="relative">
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#6C63FF] via-[#6C63FF]/50 to-transparent" />
           <div className="space-y-8">
-            {education.map((item, index) => (
+            {content.education.map((item, index) => (
               <motion.div
-                key={item.school}
+                key={item.id}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
