@@ -278,24 +278,21 @@ export const defaultContent: Content = {
       title: "Responsive Web Design",
       issuer: "FreeCodeCamp",
       icon: "🌐",
-      image:
-        "https://placehold.co/600x400/151515/EF4444?text=Responsive+Web",
+      image: "/uploads/image/b2f9aff1-a8d6-4d9c-81d1-432ebd056f0a.jpg",
     },
     {
       id: "2",
       title: "JavaScript Algorithms and Data Structures",
       issuer: "FreeCodeCamp",
       icon: "📊",
-      image:
-        "https://placehold.co/600x400/151515/EF4444?text=JS+Algorithms",
+      image: "/uploads/image/7c3dc184-8336-4ed0-b41f-18c41e9fe09c.jpg",
     },
     {
       id: "3",
       title: "Python Programming",
       issuer: "FreeCodeCamp",
       icon: "🐍",
-      image:
-        "https://placehold.co/600x400/151515/EF4444?text=Python",
+      image: "/uploads/image/cc6762ed-9488-47fd-9a9e-3d2aa7bac23b.jpg",
     },
   ],
   contact: [
