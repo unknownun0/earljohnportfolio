@@ -121,8 +121,8 @@ export const defaultContent: Content = {
         "A web-based reservation platform designed to streamline appointment scheduling and customer management.",
       tags: ["PHP", "MySQL", "JavaScript"],
       featured: true,
-      image: "https://placehold.co/600x400/151515/6C63FF?text=Booking+System",
-      video: "",
+      image: "https://placehold.co/600x400/151515/EF4444?text=Booking+System",
+      video: "/uploads/video/romaoturs%20(1).mp4",
     },
     {
       id: "2",
@@ -131,7 +131,7 @@ export const defaultContent: Content = {
         "A responsive calculator application built using modern web technologies.",
       tags: ["HTML", "CSS", "JavaScript"],
       featured: false,
-      image: "https://placehold.co/600x400/151515/6C63FF?text=Calculator",
+      image: "https://placehold.co/600x400/151515/EF4444?text=Calculator",
       video: "",
     },
     {
@@ -141,8 +141,8 @@ export const defaultContent: Content = {
         "A digital grading platform for managing student records, grades, and academic performance.",
       tags: ["PHP", "MySQL", "Bootstrap"],
       featured: false,
-      image: "https://placehold.co/600x400/151515/6C63FF?text=Grading+System",
-      video: "",
+      image: "https://placehold.co/600x400/151515/EF4444?text=Grading+System",
+      video: "/uploads/video/sample%201.mp4",
     },
   ],
   experience: [
@@ -161,7 +161,7 @@ export const defaultContent: Content = {
       type: "Seminar",
       icon: "🛠️",
       image:
-        "https://placehold.co/800x400/151515/6C63FF?text=GitHub+Seminar",
+        "https://placehold.co/800x400/151515/EF4444?text=GitHub+Seminar",
     },
     {
       id: "3",
@@ -170,7 +170,7 @@ export const defaultContent: Content = {
       type: "Seminar",
       icon: "🔗",
       image:
-        "https://placehold.co/800x400/151515/6C63FF?text=Blockchain+Seminar",
+        "https://placehold.co/800x400/151515/EF4444?text=Blockchain+Seminar",
     },
     {
       id: "4",
@@ -179,7 +179,7 @@ export const defaultContent: Content = {
       type: "Seminar",
       icon: "🌐",
       image:
-        "https://placehold.co/800x400/151515/6C63FF?text=Developer+Tour",
+        "https://placehold.co/800x400/151515/EF4444?text=Developer+Tour",
     },
   ],
   techStack: [
@@ -267,7 +267,7 @@ export const defaultContent: Content = {
       issuer: "FreeCodeCamp",
       icon: "🌐",
       image:
-        "https://placehold.co/600x400/151515/6C63FF?text=Responsive+Web",
+        "https://placehold.co/600x400/151515/EF4444?text=Responsive+Web",
     },
     {
       id: "2",
@@ -275,7 +275,7 @@ export const defaultContent: Content = {
       issuer: "FreeCodeCamp",
       icon: "📊",
       image:
-        "https://placehold.co/600x400/151515/6C63FF?text=JS+Algorithms",
+        "https://placehold.co/600x400/151515/EF4444?text=JS+Algorithms",
     },
     {
       id: "3",
@@ -283,7 +283,7 @@ export const defaultContent: Content = {
       issuer: "FreeCodeCamp",
       icon: "🐍",
       image:
-        "https://placehold.co/600x400/151515/6C63FF?text=Python",
+        "https://placehold.co/600x400/151515/EF4444?text=Python",
     },
   ],
   contact: [
