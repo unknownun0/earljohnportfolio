@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { Upload } from "lucide-react";
+import { useRef, useState } from "react";
+import { Upload, Loader2 } from "lucide-react";
 
 interface ImageUploadProps {
   currentValue: string;
@@ -15,8 +15,9 @@ export default function ImageUpload({
   accept = "image/*",
 }: ImageUploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [uploading, setUploading] = useState(false);
 
-  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -25,12 +26,32 @@ export default function ImageUpload({
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      onUpload(reader.result as string);
-    };
-    reader.readAsDataURL(file);
-    e.target.value = "";
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Upload failed");
+      }
+
+      const data = await res.json();
+      onUpload(data.url);
+    } catch (err) {
+      console.error("Upload error, falling back to local base64:", err);
+      const reader = new FileReader();
+      reader.onload = () => onUpload(reader.result as string);
+      reader.readAsDataURL(file);
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
   };
 
   return (
@@ -54,11 +75,18 @@ export default function ImageUpload({
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-[#888] hover:text-white hover:border-[#6C63FF] transition-all duration-200 flex items-center gap-2"
+        disabled={uploading}
+        className="bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-[#888] hover:text-white hover:border-[#6C63FF] transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
         title="Upload file"
       >
-        <Upload className="w-4 h-4" />
-        <span className="hidden sm:inline">Upload</span>
+        {uploading ? (
+          <Loader2 className="w-4 h-4 animate-spin" />
+        ) : (
+          <Upload className="w-4 h-4" />
+        )}
+        <span className="hidden sm:inline">
+          {uploading ? "Uploading..." : "Upload"}
+        </span>
       </button>
     </div>
   );
