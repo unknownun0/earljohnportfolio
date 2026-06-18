@@ -34,7 +34,7 @@ export default function Projects() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
                 onClick={() => setSelected(project)}
-                className="bg-[#151515] border border-[#222] rounded-3xl overflow-hidden hover:border-[#6C63FF]/30 transition-all duration-300 group cursor-pointer"
+                className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#6C63FF]/30 transition-all duration-300 group cursor-pointer"
               >
                 {(project.image || project.video) && (
                   <div className="relative h-48 overflow-hidden">

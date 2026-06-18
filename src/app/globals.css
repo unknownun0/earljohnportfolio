@@ -7,7 +7,7 @@
   --color-accent: #6C63FF;
   --color-accent-hover: #8B85FF;
   --color-muted: #888888;
-  --color-border: #222222;
+  --color-border: rgba(255, 255, 255, 0.2);
   --font-sans: "Inter", sans-serif;
   --font-mono: "Inter", monospace;
 }

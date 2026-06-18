@@ -46,7 +46,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
-          <div className="bg-[#151515] rounded-3xl p-8 md:p-10 border border-[#222] hover:border-[#6C63FF]/30 transition-colors duration-300">
+          <div className="bg-[#151515] rounded-3xl p-8 md:p-10 border border-white/20 hover:border-[#6C63FF]/30 transition-colors duration-300">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
               {hero.name}
             </h1>

@@ -35,7 +35,7 @@ export default function Education() {
                 <div className="absolute left-4 top-6 w-9 h-9 rounded-full bg-[#151515] border-2 border-[#6C63FF] flex items-center justify-center">
                   <GraduationCap className="w-4 h-4 text-[#6C63FF]" />
                 </div>
-                <div className="bg-[#151515] border border-[#222] rounded-3xl p-6 md:p-8 hover:border-[#6C63FF]/30 transition-all duration-300 hover:bg-[#1E1E1E]">
+                <div className="bg-[#151515] border border-white/20 rounded-3xl p-6 md:p-8 hover:border-[#6C63FF]/30 transition-all duration-300 hover:bg-[#1E1E1E]">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                     {item.school}
                   </h3>

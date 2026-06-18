@@ -20,7 +20,7 @@ export default function Certifications() {
           Certifications
         </motion.h2>
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#151515] border border-[#222] rounded-3xl p-8">
+          <div className="bg-[#151515] border border-white/20 rounded-3xl p-8">
             <div className="flex items-center gap-3 mb-8">
               <Award className="w-6 h-6 text-[#6C63FF]" />
               <h3 className="text-xl font-bold text-white">
@@ -36,7 +36,7 @@ export default function Certifications() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -4 }}
-                  className="bg-[#1E1E1E] rounded-2xl overflow-hidden border border-[#222] hover:border-[#6C63FF]/30 transition-all duration-300 group"
+                  className="bg-[#1E1E1E] rounded-2xl overflow-hidden border border-white/20 hover:border-[#6C63FF]/30 transition-all duration-300 group"
                 >
                   {cert.image && (
                     <div className="h-36 overflow-hidden">

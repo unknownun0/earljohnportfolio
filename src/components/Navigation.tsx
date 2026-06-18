@@ -20,7 +20,7 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-[#222]"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/20"
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <a
@@ -55,7 +55,7 @@ export default function Navigation() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#151515] border-t border-[#222]"
+          className="md:hidden bg-[#151515] border-t border-white/20"
         >
           <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => (

@@ -27,7 +27,7 @@ export default function Interests() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.05, y: -4 }}
-              className="bg-[#151515] border border-[#222] rounded-full px-6 py-3 flex items-center gap-3 hover:border-[#6C63FF]/40 hover:bg-[#1E1E1E] transition-all duration-300 cursor-default"
+              className="bg-[#151515] border border-white/20 rounded-full px-6 py-3 flex items-center gap-3 hover:border-[#6C63FF]/40 hover:bg-[#1E1E1E] transition-all duration-300 cursor-default"
             >
               <span className="text-xl">{item.split(" ")[0]}</span>
               <span className="text-white font-medium">

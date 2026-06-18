@@ -62,7 +62,7 @@ export default function ImageUpload({
           value={currentValue}
           onChange={(e) => onUpload(e.target.value)}
           placeholder="Paste image URL or upload a file"
-          className="w-full bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF]"
+          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF]"
         />
       </div>
       <input
@@ -76,7 +76,7 @@ export default function ImageUpload({
         type="button"
         onClick={() => inputRef.current?.click()}
         disabled={uploading}
-        className="bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-[#888] hover:text-white hover:border-[#6C63FF] transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
+        className="bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-[#888] hover:text-white hover:border-[#6C63FF] transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
         title="Upload file"
       >
         {uploading ? (

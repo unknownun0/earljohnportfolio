@@ -27,7 +27,7 @@ export default function Experience() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -4 }}
-              className="bg-[#151515] border border-[#222] rounded-3xl overflow-hidden hover:border-[#6C63FF]/30 transition-all duration-300 group"
+              className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#6C63FF]/30 transition-all duration-300 group"
             >
               {exp.image && (
                 <div className="h-40 overflow-hidden">

@@ -82,7 +82,7 @@ export default function AdminPage() {
   if (!authenticated) {
     return (
       <div className="min-h-screen bg-[#0B0B0B] flex items-center justify-center px-4">
-        <div className="bg-[#151515] border border-[#222] rounded-3xl p-8 w-full max-w-sm">
+        <div className="bg-[#151515] border border-white/20 rounded-3xl p-8 w-full max-w-sm">
           <h1 className="text-2xl font-bold text-white mb-2">Admin Login</h1>
           <p className="text-[#888] text-sm mb-6">
             Enter password to manage content
@@ -93,7 +93,7 @@ export default function AdminPage() {
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleLogin()}
             placeholder="Password"
-            className="w-full bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF] mb-4"
+            className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF] mb-4"
           />
           <button
             onClick={handleLogin}
@@ -108,8 +108,8 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-[#0B0B0B] flex">
-      <aside className="w-64 bg-[#151515] border-r border-[#222] hidden lg:flex flex-col">
-        <div className="p-6 border-b border-[#222]">
+      <aside className="w-64 bg-[#151515] border-r border-white/20 hidden lg:flex flex-col">
+        <div className="p-6 border-b border-white/20">
           <h2 className="text-lg font-bold text-white">Admin Panel</h2>
           <p className="text-xs text-[#888] mt-1">Manage your portfolio</p>
         </div>
@@ -141,7 +141,7 @@ export default function AdminPage() {
             </button>
           ))}
         </nav>
-        <div className="p-4 border-t border-[#222] space-y-2">
+        <div className="p-4 border-t border-white/20 space-y-2">
           <button
             onClick={handleSave}
             className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] text-white font-semibold rounded-xl py-3 hover:opacity-90 transition-opacity text-sm"
@@ -258,14 +258,14 @@ function InputField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           rows={rows || 3}
-          className="w-full bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF] resize-y"
+          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF] resize-y"
         />
       ) : (
         <input
           type={type || "text"}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF]"
+          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#6C63FF]"
         />
       )}
     </div>
@@ -308,7 +308,7 @@ function HeroEditor({
         <img
           src={content.hero.image}
           alt="Preview"
-          className="w-32 h-32 rounded-2xl object-cover border border-[#222]"
+          className="w-32 h-32 rounded-2xl object-cover border border-white/20"
         />
       )}
       <div>
@@ -326,7 +326,7 @@ function HeroEditor({
                   })
                 }
                 rows={2}
-                className="flex-1 bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#6C63FF] resize-y"
+                className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#6C63FF] resize-y"
               />
               <button
                 onClick={() =>
@@ -346,7 +346,7 @@ function HeroEditor({
             value={newAbout}
             onChange={(e) => setNewAbout(e.target.value)}
             placeholder="New paragraph..."
-            className="flex-1 bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+            className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
           />
           <button
             onClick={() => {
@@ -387,7 +387,7 @@ function InterestsEditor({
                   d.interests[i] = e.target.value;
                 })
               }
-              className="flex-1 bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+              className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
             />
             <button
               onClick={() =>
@@ -407,7 +407,7 @@ function InterestsEditor({
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder="Add interest (e.g. 💻 Web Development)"
-          className="flex-1 bg-[#1E1E1E] border border-[#222] rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+          className="flex-1 bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
         />
         <button
           onClick={() => {
@@ -457,7 +457,7 @@ function EducationEditor({
       {content.education.map((item, i) => (
         <div
           key={item.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <span className="text-sm text-[#6C63FF] font-medium">
@@ -500,7 +500,7 @@ function EducationEditor({
                       draft.education[i].details[j] = e.target.value;
                     })
                   }
-                  className="flex-1 bg-[#0B0B0B] border border-[#222] rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+                  className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
                 />
                 <button
                   onClick={() =>
@@ -565,7 +565,7 @@ function ProjectsEditor({
       {content.projects.map((item, i) => (
         <div
           key={item.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <span className="text-sm text-[#6C63FF] font-medium">
@@ -607,7 +607,7 @@ function ProjectsEditor({
             <img
               src={item.image}
               alt="Preview"
-              className="h-32 rounded-xl object-cover border border-[#222]"
+              className="h-32 rounded-xl object-cover border border-white/20"
             />
           )}
           <div>
@@ -626,7 +626,7 @@ function ProjectsEditor({
               {item.tags.map((t, j) => (
                 <span
                   key={j}
-                  className="bg-[#0B0B0B] border border-[#222] rounded-full px-3 py-1 text-sm flex items-center gap-2"
+                  className="bg-[#0B0B0B] border border-white/20 rounded-full px-3 py-1 text-sm flex items-center gap-2"
                 >
                   {t}
                   <button
@@ -653,7 +653,7 @@ function ProjectsEditor({
                     e.currentTarget.value = "";
                   }
                 }}
-                className="flex-1 bg-[#0B0B0B] border border-[#222] rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+                className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
               />
             </div>
           </div>
@@ -707,7 +707,7 @@ function ExperienceEditor({
       {content.experience.map((item, i) => (
         <div
           key={item.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <span className="text-sm text-[#6C63FF] font-medium">
@@ -757,7 +757,7 @@ function ExperienceEditor({
             <img
               src={item.image}
               alt="Preview"
-              className="h-32 rounded-xl object-cover border border-[#222]"
+              className="h-32 rounded-xl object-cover border border-white/20"
             />
           )}
         </div>
@@ -792,7 +792,7 @@ function TechStackEditor({
       {content.techStack.map((group, i) => (
         <div
           key={group.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <InputField
@@ -817,7 +817,7 @@ function TechStackEditor({
               {group.items.map((item, j) => (
                 <span
                   key={j}
-                  className="bg-[#0B0B0B] border border-[#222] rounded-full px-3 py-1 text-sm flex items-center gap-2"
+                  className="bg-[#0B0B0B] border border-white/20 rounded-full px-3 py-1 text-sm flex items-center gap-2"
                 >
                   {item}
                   <button
@@ -844,7 +844,7 @@ function TechStackEditor({
                     e.currentTarget.value = "";
                   }
                 }}
-                className="flex-1 bg-[#0B0B0B] border border-[#222] rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
+                className="flex-1 bg-[#0B0B0B] border border-white/20 rounded-xl px-3 py-1.5 text-white text-sm focus:outline-none focus:border-[#6C63FF]"
               />
             </div>
           </div>
@@ -886,7 +886,7 @@ function CertificationsEditor({
       {content.certifications.map((item, i) => (
         <div
           key={item.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <span className="text-sm text-[#6C63FF] font-medium">
@@ -931,7 +931,7 @@ function CertificationsEditor({
             <img
               src={item.image}
               alt="Preview"
-              className="h-32 rounded-xl object-cover border border-[#222]"
+              className="h-32 rounded-xl object-cover border border-white/20"
             />
           )}
         </div>
@@ -972,7 +972,7 @@ function ContactEditor({
       {content.contact.map((item, i) => (
         <div
           key={item.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <span className="text-sm text-[#6C63FF] font-medium">
@@ -1046,7 +1046,7 @@ function SocialsEditor({
       {content.socials.map((item, i) => (
         <div
           key={item.id}
-          className="bg-[#1E1E1E] rounded-2xl p-6 border border-[#222] space-y-4"
+          className="bg-[#1E1E1E] rounded-2xl p-6 border border-white/20 space-y-4"
         >
           <div className="flex justify-between items-center">
             <span className="text-sm text-[#6C63FF] font-medium">

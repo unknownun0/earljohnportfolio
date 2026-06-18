@@ -27,7 +27,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0, scale: 0.9, y: 40 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-[#151515] border border-[#222] rounded-3xl overflow-hidden max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         >
           <div className="relative">
             {project.video ? (
