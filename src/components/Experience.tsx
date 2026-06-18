@@ -8,17 +8,17 @@ export default function Experience() {
   const { content } = useContent();
 
   return (
-    <SectionWrapper className="px-4 py-20" id="experience">
-      <div className="max-w-6xl mx-auto">
+    <SectionWrapper className="px-4 py-12" id="experience">
+      <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          className="text-2xl md:text-3xl font-bold mb-8 text-center"
         >
           Experience & Seminars
         </motion.h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {content.experience.map((exp, index) => (
             <motion.div
               key={exp.id}
@@ -26,11 +26,11 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#EF4444]/30 transition-all duration-300 group"
+              whileHover={{ y: -2 }}
+              className="bg-[#151515] border border-white/20 rounded-2xl overflow-hidden hover:border-[#EF4444]/30 transition-all duration-300 group"
             >
               {exp.image && (
-                <div className="h-40 overflow-hidden">
+                <div className="h-32 overflow-hidden">
                   <img
                     src={exp.image}
                     alt={exp.title}
@@ -38,19 +38,19 @@ export default function Experience() {
                   />
                 </div>
               )}
-              <div className="p-6 md:p-8">
-                <div className="flex items-start gap-4">
-                  {!exp.image && <div className="text-2xl">{exp.icon}</div>}
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#EF4444] transition-colors duration-300">
+              <div className="p-4">
+                <div className="flex items-start gap-3">
+                  {!exp.image && <div className="text-lg">{exp.icon}</div>}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2 mb-1">
+                      <h3 className="text-sm font-bold text-white group-hover:text-[#EF4444] transition-colors duration-300 truncate">
                         {exp.title}
                       </h3>
-                      <span className="text-xs font-medium text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full whitespace-nowrap">
+                      <span className="text-[10px] font-medium text-[#EF4444] bg-[#EF4444]/10 px-2 py-0.5 rounded-full shrink-0">
                         {exp.type}
                       </span>
                     </div>
-                    <p className="text-[#888]">{exp.organization}</p>
+                    <p className="text-xs text-[#888] truncate">{exp.organization}</p>
                   </div>
                 </div>
               </div>

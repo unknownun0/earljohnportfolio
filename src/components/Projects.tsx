@@ -14,17 +14,17 @@ export default function Projects() {
 
   return (
     <>
-      <SectionWrapper className="px-4 py-20" id="projects">
-        <div className="max-w-6xl mx-auto">
+      <SectionWrapper className="px-4 py-12" id="projects">
+        <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-12 text-center"
+            className="text-2xl md:text-3xl font-bold mb-8 text-center"
           >
             Projects
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {content.projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -32,12 +32,12 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -4 }}
                 onClick={() => setSelected(project)}
-                className="bg-[#151515] border border-white/20 rounded-3xl overflow-hidden hover:border-[#EF4444]/30 transition-all duration-300 group cursor-pointer"
+                className="bg-[#151515] border border-white/20 rounded-2xl overflow-hidden hover:border-[#EF4444]/30 transition-all duration-300 group cursor-pointer"
               >
                 {(project.image || project.video) && (
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-36 overflow-hidden">
                     {project.video ? (
                       <video
                         src={project.video}
@@ -56,31 +56,31 @@ export default function Projects() {
                       />
                     )}
                     {project.featured && (
-                      <div className="absolute top-3 right-3">
-                        <span className="text-xs font-medium text-[#EF4444] bg-[#0B0B0B]/80 backdrop-blur-sm px-3 py-1 rounded-full">
+                      <div className="absolute top-2 right-2">
+                        <span className="text-[10px] font-medium text-[#EF4444] bg-[#0B0B0B]/80 backdrop-blur-sm px-2 py-0.5 rounded-full">
                           Featured
                         </span>
                       </div>
                     )}
                   </div>
                 )}
-                <div className="p-6 md:p-8">
+                <div className="p-4">
                   {!project.image && !project.video && (
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EF4444]/20 to-[#DC2626]/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                      <Code className="w-6 h-6 text-[#EF4444]" />
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#EF4444]/20 to-[#DC2626]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                      <Code className="w-4 h-4 text-[#EF4444]" />
                     </div>
                   )}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#EF4444] transition-colors duration-300">
+                  <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-[#EF4444] transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-[#888] leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-xs text-[#888] leading-relaxed mb-3 line-clamp-2">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs text-[#666] bg-[#1E1E1E] px-3 py-1 rounded-full"
+                        className="text-[10px] text-[#666] bg-[#1E1E1E] px-2 py-0.5 rounded-full"
                       >
                         {tag}
                       </span>

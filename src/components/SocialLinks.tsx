@@ -18,17 +18,17 @@ export default function SocialLinks() {
   const { content } = useContent();
 
   return (
-    <SectionWrapper className="px-4 pb-20" id="socials">
-      <div className="max-w-6xl mx-auto">
+    <SectionWrapper className="px-4 pb-16" id="socials">
+      <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          className="text-2xl md:text-3xl font-bold mb-8 text-center"
         >
           Connect
         </motion.h2>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-2">
           {content.socials.map((social, index) => {
             const IconComponent = socialIconMap[social.icon] || Globe;
             return (
@@ -41,11 +41,11 @@ export default function SocialLinks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                whileHover={{ y: -6, scale: 1.05 }}
-                className="bg-[#151515] border border-white/20 rounded-2xl p-5 hover:border-[#EF4444]/40 hover:bg-[#1E1E1E] transition-all duration-300 group flex flex-col items-center gap-2 min-w-[100px]"
+                whileHover={{ y: -3, scale: 1.05 }}
+                className="bg-[#151515] border border-white/20 rounded-xl p-3 hover:border-[#EF4444]/40 hover:bg-[#1E1E1E] transition-all duration-300 group flex flex-col items-center gap-1 min-w-[72px]"
               >
-                <IconComponent className="w-6 h-6 text-[#888] group-hover:text-[#EF4444] transition-colors duration-300" />
-                <span className="text-xs text-[#888] group-hover:text-[#EF4444] transition-colors duration-300">
+                <IconComponent className="w-4 h-4 text-[#888] group-hover:text-[#EF4444] transition-colors duration-300" />
+                <span className="text-[10px] text-[#888] group-hover:text-[#EF4444] transition-colors duration-300">
                   {social.label}
                 </span>
               </motion.a>

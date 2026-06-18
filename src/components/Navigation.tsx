@@ -22,20 +22,20 @@ export default function Navigation() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/20"
     >
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 h-12 flex items-center justify-between">
         <a
           href="#home"
-          className="text-lg font-bold bg-gradient-to-r from-[#EF4444] to-[#DC2626] bg-clip-text text-transparent"
+          className="text-sm font-bold bg-gradient-to-r from-[#EF4444] to-[#DC2626] bg-clip-text text-transparent"
         >
           EJ
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-[#888] hover:text-white transition-colors duration-300"
+              className="text-xs text-[#888] hover:text-white transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -44,10 +44,10 @@ export default function Navigation() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-1"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
         </button>
       </div>
 
@@ -57,13 +57,13 @@ export default function Navigation() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden bg-[#151515] border-t border-white/20"
         >
-          <div className="px-4 py-4 space-y-3">
+          <div className="px-4 py-3 space-y-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-sm text-[#888] hover:text-white transition-colors duration-300"
+                className="block text-xs text-[#888] hover:text-white transition-colors duration-300"
               >
                 {item.label}
               </a>
