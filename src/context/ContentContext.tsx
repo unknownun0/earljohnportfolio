@@ -10,33 +10,85 @@ interface ContentContextType {
 }
 
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
+const DB_NAME = "PortfolioDB";
+const STORE_NAME = "content";
+const DB_KEY = "portfolio-data";
+
+function openDB(): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME);
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function getFromDB(): Promise<Content | null> {
+  try {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readonly");
+      const store = tx.objectStore(STORE_NAME);
+      const req = store.get(DB_KEY);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function saveToDB(content: Content): Promise<void> {
+  try {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      const store = tx.objectStore(STORE_NAME);
+      const req = store.put(content, DB_KEY);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  } catch {}
+}
+
+async function clearDB(): Promise<void> {
+  try {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      const store = tx.objectStore(STORE_NAME);
+      const req = store.delete(DB_KEY);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  } catch {}
+}
 
 export function ContentProvider({ children }: { children: ReactNode }) {
   const [content, setContent] = useState<Content>(defaultContent);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("portfolio-content");
-      if (saved) {
-        setContent(JSON.parse(saved));
-      }
-    } catch {}
-    setLoaded(true);
+    (async () => {
+      const saved = await getFromDB();
+      if (saved) setContent(saved);
+      setLoaded(true);
+    })();
   }, []);
 
   const updateContent = (newContent: Content) => {
     setContent(newContent);
-    try {
-      localStorage.setItem("portfolio-content", JSON.stringify(newContent));
-    } catch {}
+    saveToDB(newContent);
   };
 
   const resetContent = () => {
     setContent(defaultContent);
-    try {
-      localStorage.removeItem("portfolio-content");
-    } catch {}
+    clearDB();
   };
 
   if (!loaded) return null;

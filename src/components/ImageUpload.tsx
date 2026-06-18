@@ -20,8 +20,8 @@ export default function ImageUpload({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (file.size > 5 * 1024 * 1024) {
-      alert("File too large. Max 5MB.");
+    if (file.size > 25 * 1024 * 1024) {
+      alert("File too large. Max 25MB.");
       return;
     }
 
