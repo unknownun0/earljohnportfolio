@@ -7,12 +7,6 @@ export default function Footer() {
         <p className="text-[10px] text-[#888]">
           &copy; {new Date().getFullYear()} Earl John Gomez
         </p>
-        <a
-          href="/admin"
-          className="text-[10px] text-[#888] hover:text-[#EF4444] transition-colors"
-        >
-          Admin
-        </a>
       </div>
     </footer>
   );

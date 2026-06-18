@@ -132,8 +132,8 @@ export const defaultContent: Content = {
         "A digital grading platform for managing student records, grades, and academic performance.",
       tags: ["PHP", "MySQL", "Bootstrap"],
       featured: false,
-      image: "https://placehold.co/600x400/151515/EF4444?text=Grading+System",
-      video: "/uploads/video/sample%201.mp4",
+      image: "/uploads/image/azgh.png",
+      video: "",
     },
     {
       id: "3",
