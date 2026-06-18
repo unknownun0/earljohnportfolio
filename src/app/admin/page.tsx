@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useContent } from "@/context/ContentContext";
 import { Content, defaultContent } from "@/data/defaultContent";
+import ImageUpload from "@/components/ImageUpload";
 import {
   Save,
   LogOut,
@@ -294,11 +295,15 @@ function HeroEditor({
         multiline
         rows={2}
       />
-      <InputField
-        label="Profile Image URL"
-        value={content.hero.image}
-        onChange={(v) => update((d) => (d.hero.image = v))}
-      />
+      <div>
+        <label className="block text-sm text-[#888] mb-1.5">
+          Profile Image
+        </label>
+        <ImageUpload
+          currentValue={content.hero.image}
+          onUpload={(v) => update((d) => (d.hero.image = v))}
+        />
+      </div>
       {content.hero.image && (
         <img
           src={content.hero.image}
@@ -589,11 +594,15 @@ function ProjectsEditor({
             multiline
             rows={3}
           />
-          <InputField
-            label="Image URL"
-            value={item.image}
-            onChange={(v) => update((d) => (d.projects[i].image = v))}
-          />
+          <div>
+            <label className="block text-sm text-[#888] mb-1.5">
+              Project Image
+            </label>
+            <ImageUpload
+              currentValue={item.image}
+              onUpload={(v) => update((d) => (d.projects[i].image = v))}
+            />
+          </div>
           {item.image && (
             <img
               src={item.image}
@@ -601,11 +610,16 @@ function ProjectsEditor({
               className="h-32 rounded-xl object-cover border border-[#222]"
             />
           )}
-          <InputField
-            label="Video URL (optional)"
-            value={item.video}
-            onChange={(v) => update((d) => (d.projects[i].video = v))}
-          />
+          <div>
+            <label className="block text-sm text-[#888] mb-1.5">
+              Video (optional)
+            </label>
+            <ImageUpload
+              currentValue={item.video}
+              onUpload={(v) => update((d) => (d.projects[i].video = v))}
+              accept="video/*"
+            />
+          </div>
           <div>
             <label className="block text-sm text-[#888] mb-1.5">Tags</label>
             <div className="flex flex-wrap gap-2">
@@ -730,11 +744,15 @@ function ExperienceEditor({
             value={item.icon}
             onChange={(v) => update((d) => (d.experience[i].icon = v))}
           />
-          <InputField
-            label="Image URL"
-            value={item.image}
-            onChange={(v) => update((d) => (d.experience[i].image = v))}
-          />
+          <div>
+            <label className="block text-sm text-[#888] mb-1.5">
+              Image
+            </label>
+            <ImageUpload
+              currentValue={item.image}
+              onUpload={(v) => update((d) => (d.experience[i].image = v))}
+            />
+          </div>
           {item.image && (
             <img
               src={item.image}
@@ -900,11 +918,15 @@ function CertificationsEditor({
             value={item.icon}
             onChange={(v) => update((d) => (d.certifications[i].icon = v))}
           />
-          <InputField
-            label="Image URL"
-            value={item.image}
-            onChange={(v) => update((d) => (d.certifications[i].image = v))}
-          />
+          <div>
+            <label className="block text-sm text-[#888] mb-1.5">
+              Certificate Image
+            </label>
+            <ImageUpload
+              currentValue={item.image}
+              onUpload={(v) => update((d) => (d.certifications[i].image = v))}
+            />
+          </div>
           {item.image && (
             <img
               src={item.image}
