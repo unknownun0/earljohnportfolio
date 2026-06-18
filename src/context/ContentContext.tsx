@@ -13,6 +13,8 @@ const ContentContext = createContext<ContentContextType | undefined>(undefined);
 const DB_NAME = "PortfolioDB";
 const STORE_NAME = "content";
 const DB_KEY = "portfolio-data";
+const VERSION_KEY = "portfolio-version";
+const CURRENT_VERSION = 2;
 
 function openDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
@@ -75,8 +77,16 @@ export function ContentProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     (async () => {
-      const saved = await getFromDB();
-      if (saved) setContent(saved);
+      const version = parseInt(localStorage.getItem(VERSION_KEY) || "0", 10);
+      if (version < CURRENT_VERSION) {
+        await clearDB();
+        localStorage.setItem(VERSION_KEY, String(CURRENT_VERSION));
+      } else {
+        const saved = await getFromDB();
+        if (saved) {
+          setContent(saved);
+        }
+      }
       setLoaded(true);
     })();
   }, []);
