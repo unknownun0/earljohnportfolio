@@ -24,13 +24,17 @@ export default function Certifications() {
             whileHover={{ y: -1 }}
             className="bg-[#1E1E1E] rounded-xl border border-white/20 p-3 hover:border-[#EF4444]/30 transition-all duration-200"
           >
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-base">{cert.icon}</span>
-              <span className="text-[10px] font-semibold text-white">
-                {cert.title}
-              </span>
-            </div>
-            <p className="text-[9px] text-[#888]">{cert.issuer}</p>
+            {cert.image && (
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className="w-full h-28 object-cover rounded-lg mb-2"
+              />
+            )}
+            <span className="text-[10px] font-semibold text-white block text-center">
+              {cert.title}
+            </span>
+            <p className="text-[9px] text-[#888] text-center">{cert.issuer}</p>
           </motion.div>
         ))}
       </div>
