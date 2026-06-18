@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award } from "lucide-react";
 import { useContent } from "@/context/ContentContext";
 
 export default function Certifications() {
   const { content } = useContent();
 
   return (
-    <div className="bg-[#151515] border border-white/20 rounded-2xl p-5">
+    <div>
       <h2 className="text-base font-bold text-white mb-4 flex items-center gap-2">
         <span className="w-1 h-4 bg-[#EF4444] rounded-full" />
         Certifications

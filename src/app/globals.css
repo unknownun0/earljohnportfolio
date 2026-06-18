@@ -36,3 +36,35 @@ body {
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+@keyframes spin-gradient {
+  to { transform: rotate(360deg); }
+}
+
+.animated-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.animated-card::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, #EF4444, #DC2626, #B91C1C, #EF4444, #DC2626, #B91C1C, #EF4444);
+  animation: spin-gradient 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animated-card:hover::before {
+  animation-duration: 2s;
+}
+
+.animated-card .card-inner {
+  position: relative;
+  z-index: 1;
+  margin: 1px;
+  border-radius: calc(1rem - 1px);
+  background: #151515;
+}

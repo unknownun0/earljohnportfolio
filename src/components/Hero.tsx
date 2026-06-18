@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useContent } from "@/context/ContentContext";
 
 export default function Hero() {
@@ -8,12 +7,7 @@ export default function Hero() {
   const { hero } = content;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="bg-[#151515] border border-white/20 rounded-2xl p-5 text-center"
-    >
+    <div className="text-center">
       <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] p-[2px] mb-3">
         <div className="w-full h-full rounded-full bg-[#151515] flex items-center justify-center overflow-hidden">
           {hero.image ? (
@@ -38,6 +32,6 @@ export default function Hero() {
           <p key={i}>{paragraph}</p>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

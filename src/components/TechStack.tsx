@@ -7,11 +7,17 @@ export default function TechStack() {
   const { content } = useContent();
 
   return (
-    <div className="bg-[#151515] border border-white/20 rounded-2xl p-5 space-y-4">
+    <div className="space-y-4">
       <h3 className="text-sm font-bold text-white">Tech Stack</h3>
       <div className="space-y-3">
-        {content.techStack.slice(0, 4).map((group) => (
-          <div key={group.id}>
+        {content.techStack.slice(0, 4).map((group, gi) => (
+          <motion.div
+            key={group.id}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: gi * 0.1 }}
+          >
             <h4 className="text-[10px] font-semibold text-[#666] uppercase tracking-wider mb-1.5">
               {group.category}
             </h4>
@@ -25,7 +31,7 @@ export default function TechStack() {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
