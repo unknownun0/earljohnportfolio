@@ -1,0 +1,67 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+export default function Hero() {
+  return (
+    <section className="min-h-screen flex items-center justify-center px-4 py-20">
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-8 items-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex justify-center"
+        >
+          <div className="relative">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[#6C63FF] to-[#FF6B6B] p-1 animate-float">
+              <div className="w-full h-full rounded-3xl bg-[#151515] flex items-center justify-center overflow-hidden">
+                <div className="text-center">
+                  <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full bg-gradient-to-br from-[#6C63FF] to-[#FF6B6B] flex items-center justify-center text-5xl md:text-6xl font-bold text-white">
+                    EJ
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border border-[#6C63FF]/20 -z-10" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
+          <div className="bg-[#151515] rounded-3xl p-8 md:p-10 border border-[#222] hover:border-[#6C63FF]/30 transition-colors duration-300">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+              Earl John Gomez
+            </h1>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full mb-6" />
+            <p className="text-lg md:text-xl text-[#6C63FF] italic mb-6 leading-relaxed">
+              &ldquo;The future belongs to those who believe in the beauty of
+              their dreams.&rdquo;
+            </p>
+            <div className="space-y-4 text-[#888] leading-relaxed">
+              <p>
+                I am a Bachelor of Science in Information Systems (BSIS) student
+                with strong skills in web development, graphic design, and social
+                media management. I have hands-on experience creating digital
+                solutions, managing online content, and designing promotional
+                materials that enhance brand engagement.
+              </p>
+              <p>
+                Proficient in HTML, CSS, JavaScript, PHP, and basic AI
+                integration, I enjoy combining creativity and technology to
+                solve problems and deliver user-friendly solutions.
+              </p>
+              <p>
+                I am passionate about learning and seeking opportunities to
+                contribute my technical and creative skills to a dynamic,
+                growth-oriented team.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
