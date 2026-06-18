@@ -65,32 +65,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="p-5 space-y-4">
-            <div>
-              <h2 className="text-lg md:text-xl font-bold text-white mb-1">
-                {project.title}
-              </h2>
-              <div className="w-8 h-[3px] bg-gradient-to-r from-[#EF4444] to-[#DC2626] rounded-full" />
-            </div>
-
+            <h2 className="text-lg font-bold text-white">{project.title}</h2>
+            <div className="w-8 h-[3px] bg-gradient-to-r from-[#EF4444] to-[#DC2626] rounded-full" />
             <p className="text-sm text-[#888] leading-relaxed">
               {project.description}
             </p>
-
             {project.tags.length > 0 && (
-              <div>
-                <h4 className="text-xs font-semibold text-white mb-2">
-                  Technologies
-                </h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             )}
           </div>

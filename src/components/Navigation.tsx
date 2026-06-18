@@ -6,9 +6,7 @@ import { useState } from "react";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Education", href: "#education" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -22,12 +20,9 @@ export default function Navigation() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/20"
     >
-      <div className="max-w-5xl mx-auto px-4 h-12 flex items-center justify-between">
-        <a
-          href="#home"
-          className="text-sm font-bold bg-gradient-to-r from-[#EF4444] to-[#DC2626] bg-clip-text text-transparent"
-        >
-          EJ
+      <div className="max-w-6xl mx-auto px-4 h-12 flex items-center justify-between">
+        <a href="#home" className="text-sm font-bold text-white">
+          Earl John Gomez
         </a>
 
         <div className="hidden md:flex items-center gap-6">

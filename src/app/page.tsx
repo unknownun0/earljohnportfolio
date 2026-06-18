@@ -16,19 +16,21 @@ export default function Home() {
   return (
     <main>
       <Navigation />
-      <section id="home">
-        <Hero />
-      </section>
-      <Interests />
-      <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-6">
-        <Education />
-        <Experience />
+      <div className="max-w-6xl mx-auto px-4 pt-20 pb-10 grid lg:grid-cols-3 gap-6">
+        <aside className="space-y-5">
+          <Hero />
+          <Contact />
+          <Interests />
+          <TechStack />
+          <SocialLinks />
+        </aside>
+        <div className="lg:col-span-2 space-y-5">
+          <Experience />
+          <Education />
+          <Projects />
+          <Certifications />
+        </div>
       </div>
-      <Projects />
-      <TechStack />
-      <Certifications />
-      <Contact />
-      <SocialLinks />
       <Footer />
     </main>
   );
