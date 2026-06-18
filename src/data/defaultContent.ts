@@ -81,7 +81,7 @@ export const defaultContent: Content = {
       "Proficient in HTML, CSS, JavaScript, PHP, and basic AI integration, I enjoy combining creativity and technology to solve problems and deliver user-friendly solutions.",
       "I am passionate about learning and seeking opportunities to contribute my technical and creative skills to a dynamic, growth-oriented team.",
     ],
-    image: "https://api.dicebear.com/9.x/avataaars/svg?seed=earl",
+    image: "/uploads/image/image.png",
   },
   interests: [
     "💻 Web Development",
