@@ -82,6 +82,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 ))}
               </div>
             )}
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-[#EF4444] hover:underline font-medium"
+              >
+                Visit Live Site →
+              </a>
+            )}
           </div>
         </motion.div>
       </motion.div>

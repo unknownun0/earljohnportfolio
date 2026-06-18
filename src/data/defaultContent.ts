@@ -6,6 +6,7 @@ export interface Project {
   featured: boolean;
   image: string;
   video: string;
+  link?: string;
 }
 
 export interface Experience {
@@ -146,13 +147,14 @@ export const defaultContent: Content = {
     },
     {
       id: "4",
-      title: "Calculator",
+      title: "Memorial & Home Services",
       description:
-        "A responsive calculator application built using modern web technologies.",
-      tags: ["HTML", "CSS", "JavaScript"],
+        "A memorial/home services website built with Next.js 14, React 18, and Tailwind CSS. Features a single-page layout with Navbar, Hero, StatsCounter, About, Services, MoreServices, WhyChooseUs, Gallery, Reviews, Contact form (Nodemailer), and scroll animations. Deployed via Vercel.",
+      tags: ["Next.js", "React", "Tailwind CSS", "Nodemailer", "Vercel"],
       featured: false,
-      image: "https://placehold.co/600x400/151515/EF4444?text=Calculator",
+      image: "/uploads/image/image.png",
       video: "",
+      link: "https://memorial-cyan.vercel.app/",
     },
   ],
   experience: [

@@ -53,6 +53,17 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-block mt-2 text-[10px] text-[#EF4444] hover:underline"
+                  >
+                    Visit Site →
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
