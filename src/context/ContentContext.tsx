@@ -14,7 +14,7 @@ const DB_NAME = "PortfolioDB";
 const STORE_NAME = "content";
 const DB_KEY = "portfolio-data";
 const VERSION_KEY = "portfolio-version";
-const CURRENT_VERSION = 5;
+const CURRENT_VERSION = 7;
 
 function openDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {

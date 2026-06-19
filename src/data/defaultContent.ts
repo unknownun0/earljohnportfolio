@@ -153,8 +153,18 @@ export const defaultContent: Content = {
       tags: ["Next.js", "React", "Tailwind CSS", "Nodemailer", "Vercel"],
       featured: false,
     image: "/uploads/image/profile.png",
-      video: "",
+      video: "/uploads/video/memorial.mp4",
       link: "https://memorial-cyan.vercel.app/",
+    },
+    {
+      id: "5",
+      title: "Portfolio Website",
+      description:
+        "My personal portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion. Features a dark-themed resume layout with animated borders, an admin panel for content management, and IndexedDB persistence. Deployed on Vercel.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+      featured: true,
+      image: "/uploads/image/profile.png",
+      video: "/uploads/video/portfolio.mp4",
     },
   ],
   experience: [
