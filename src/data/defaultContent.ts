@@ -166,6 +166,16 @@ export const defaultContent: Content = {
       image: "/uploads/image/profile.png",
       video: "/uploads/video/portfolio.mp4",
     },
+    {
+      id: "6",
+      title: "Sari-Sari Store Management System",
+      description:
+        "A sari-sari store management system with inventory tracking, sales monitoring, and reporting features.",
+      tags: ["PHP", "MySQL", "Bootstrap"],
+      featured: false,
+      image: "",
+      video: "/uploads/video/sari%20sari.mp4",
+    },
   ],
   experience: [
     {
