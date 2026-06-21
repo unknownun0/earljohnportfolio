@@ -21,6 +21,7 @@ body {
   background: #0B0B0B;
   color: #ffffff;
   font-family: "Inter", sans-serif;
+  position: relative;
 }
 
 ::selection {

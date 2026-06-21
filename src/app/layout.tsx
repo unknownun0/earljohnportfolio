@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ContentProvider } from "@/context/ContentContext";
+import Background from "@/components/Background";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,7 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[#0B0B0B] text-white">
-        <ContentProvider>{children}</ContentProvider>
+        <Background />
+        <div className="relative z-10 flex flex-col min-h-full">
+          <ContentProvider>{children}</ContentProvider>
+        </div>
       </body>
     </html>
   );

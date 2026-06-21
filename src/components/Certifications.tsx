@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useContent } from "@/context/ContentContext";
 
 export default function Certifications() {
@@ -13,14 +12,9 @@ export default function Certifications() {
         Certifications
       </h2>
       <div className="grid sm:grid-cols-3 gap-3">
-        {content.certifications.map((cert, index) => (
-          <motion.div
+        {content.certifications.map((cert) => (
+          <div
             key={cert.id}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.05 }}
-            whileHover={{ y: -1 }}
             className="bg-[#1E1E1E] rounded-xl border border-white/20 p-3 hover:border-[#EF4444]/30 transition-all duration-200"
           >
             {cert.image && (
@@ -34,7 +28,7 @@ export default function Certifications() {
               {cert.title}
             </span>
             <p className="text-[9px] text-[#888] text-center">{cert.issuer}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
