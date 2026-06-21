@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Project } from "@/data/defaultContent";
 
@@ -12,6 +12,8 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [mediaLoaded, setMediaLoaded] = useState(false);
+
   useEffect(() => {
     if (project) {
       document.body.style.overflow = "hidden";
@@ -50,13 +52,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 controls
                 autoPlay
                 playsInline
+                onLoadedData={() => setMediaLoaded(true)}
               />
             ) : project.image ? (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full aspect-video object-cover"
-              />
+              <>
+                {!mediaLoaded && (
+                  <div className="w-full aspect-video bg-[#1E1E1E] flex items-center justify-center">
+                    <span className="text-xs text-[#888] animate-pulse">Loading...</span>
+                  </div>
+                )}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={`w-full aspect-video object-cover ${mediaLoaded ? "" : "hidden"}`}
+                  onLoad={() => setMediaLoaded(true)}
+                />
+              </>
             ) : (
               <div className="w-full aspect-video bg-[#1E1E1E] flex items-center justify-center">
                 <span className="text-xs text-[#888]">No media</span>

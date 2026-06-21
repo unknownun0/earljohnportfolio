@@ -1,6 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import { useContent } from "@/context/ContentContext";
+
+function CertImage({ src, alt }: { src: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <>
+      {!loaded && (
+        <div className="w-full h-28 rounded-lg mb-2 bg-[#1E1E1E] flex items-center justify-center">
+          <span className="text-[10px] text-[#888] animate-pulse">Loading...</span>
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-28 object-cover rounded-lg mb-2 ${loaded ? "" : "hidden"}`}
+        onLoad={() => setLoaded(true)}
+      />
+    </>
+  );
+}
 
 export default function Certifications() {
   const { content } = useContent();
@@ -17,13 +38,7 @@ export default function Certifications() {
             key={cert.id}
             className="bg-[#1E1E1E] rounded-xl border border-white/20 p-3 hover:border-[#EF4444]/30 transition-all duration-200"
           >
-            {cert.image && (
-              <img
-                src={cert.image}
-                alt={cert.title}
-                className="w-full h-28 object-cover rounded-lg mb-2"
-              />
-            )}
+            {cert.image && <CertImage src={cert.image} alt={cert.title} />}
             <span className="text-[10px] font-semibold text-white block text-center">
               {cert.title}
             </span>
