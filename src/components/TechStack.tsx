@@ -8,7 +8,7 @@ export default function TechStack() {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-sm font-bold text-white">Tech Stack</h3>
+      <h3 className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>Tech Stack</h3>
       <div className="space-y-3">
         {content.techStack.slice(0, 4).map((group, gi) => (
           <motion.div
@@ -18,14 +18,15 @@ export default function TechStack() {
             viewport={{ once: true }}
             transition={{ delay: gi * 0.1 }}
           >
-            <h4 className="text-[10px] font-semibold text-[#666] uppercase tracking-wider mb-1.5">
+            <h4 className="text-[10px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--text-muted)' }}>
               {group.category}
             </h4>
             <div className="flex flex-wrap gap-1">
               {group.items.map((item) => (
                 <span
                   key={item}
-                  className="text-[10px] text-[#888] bg-[#1E1E1E] px-2 py-0.5 rounded"
+                  className="text-[10px] px-2 py-0.5 rounded"
+                  style={{ color: 'var(--text-secondary)', backgroundColor: 'var(--card-alt)' }}
                 >
                   {item}
                 </span>

@@ -8,8 +8,8 @@ export default function Experience() {
 
   return (
     <div>
-      <h2 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-        <span className="w-1 h-4 bg-[#EF4444] rounded-full" />
+      <h2 className="text-base font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+        <span className="w-1 h-4 rounded-full" style={{ backgroundColor: 'var(--accent)' }} />
         Experience & Seminars
       </h2>
       <div className="space-y-3">
@@ -20,15 +20,21 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
-            className="border-l-2 border-white/20 pl-3 py-1 hover:border-[#EF4444] transition-colors"
+            className="border-l-2 pl-3 py-1 transition-colors"
+            style={{ borderColor: 'var(--border)' }}
+            onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
+            onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
           >
             <div className="flex items-start justify-between gap-2">
-              <h3 className="text-sm font-bold text-white">{exp.title}</h3>
-              <span className="text-[10px] font-medium text-[#EF4444] bg-[#EF4444]/10 px-2 py-0.5 rounded-full shrink-0">
+              <h3 className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+              <span
+                className="text-[10px] font-medium px-2 py-0.5 rounded-full shrink-0"
+                style={{ color: 'var(--accent)', backgroundColor: 'rgba(var(--accent-rgb), 0.1)' }}
+              >
                 {exp.type}
               </span>
             </div>
-            <p className="text-[11px] text-[#888] mt-0.5">{exp.organization}</p>
+            <p className="text-[11px] mt-0.5" style={{ color: 'var(--text-secondary)' }}>{exp.organization}</p>
           </motion.div>
         ))}
       </div>

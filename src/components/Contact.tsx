@@ -16,7 +16,7 @@ export default function Contact() {
 
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-bold text-white">Contact</h3>
+      <h3 className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>Contact</h3>
       <div className="space-y-2.5">
         {content.contact.map((item, index) => {
           const IconComponent = iconMap[item.icon] || MapPin;
@@ -29,16 +29,18 @@ export default function Contact() {
               transition={{ delay: index * 0.08 }}
               className="flex items-center gap-2.5"
             >
-              <IconComponent className="w-3.5 h-3.5 text-[#EF4444] shrink-0" />
+              <IconComponent className="w-3.5 h-3.5 shrink-0" style={{ color: 'var(--accent)' }} />
               {item.href ? (
                 <a
                   href={item.href}
-                  className="text-[11px] text-[#888] hover:text-[#EF4444] transition-colors"
+                  className="text-[11px] transition-colors" style={{ color: 'var(--text-secondary)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
                 >
                   {item.value}
                 </a>
               ) : (
-                <span className="text-[11px] text-[#888]">{item.value}</span>
+                <span className="text-[11px]" style={{ color: 'var(--text-secondary)' }}>{item.value}</span>
               )}
             </motion.div>
           );

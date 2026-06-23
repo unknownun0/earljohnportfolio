@@ -8,7 +8,7 @@ export default function Interests() {
 
   return (
     <div>
-      <h3 className="text-sm font-bold text-white mb-3">Interests</h3>
+      <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Interests</h3>
       <div className="flex flex-wrap gap-1.5">
         {content.interests.map((item, index) => (
           <motion.span
@@ -17,7 +17,8 @@ export default function Interests() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
-            className="text-[11px] text-[#888] bg-[#1E1E1E] px-2.5 py-1 rounded-full"
+            className="text-[11px] px-2.5 py-1 rounded-full"
+            style={{ color: 'var(--text-secondary)', backgroundColor: 'var(--card-alt)' }}
           >
             {item}
           </motion.span>

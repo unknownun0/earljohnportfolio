@@ -62,7 +62,14 @@ export default function ImageUpload({
           value={currentValue}
           onChange={(e) => onUpload(e.target.value)}
           placeholder="Paste image URL or upload a file"
-          className="w-full bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-[#666] focus:outline-none focus:border-[#EF4444]"
+          className="w-full rounded-xl px-4 py-3 focus:outline-none transition-colors"
+          style={{
+            backgroundColor: 'var(--card-alt)',
+            borderColor: 'var(--border)',
+            color: 'var(--text-primary)',
+          }}
+          onFocus={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
+          onBlur={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
         />
       </div>
       <input
@@ -76,7 +83,20 @@ export default function ImageUpload({
         type="button"
         onClick={() => inputRef.current?.click()}
         disabled={uploading}
-        className="bg-[#1E1E1E] border border-white/20 rounded-xl px-4 py-3 text-[#888] hover:text-white hover:border-[#EF4444] transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
+        className="rounded-xl px-4 py-3 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
+        style={{
+          backgroundColor: 'var(--card-alt)',
+          border: '1px solid var(--border)',
+          color: 'var(--text-secondary)',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = 'var(--accent)';
+          e.currentTarget.style.color = 'var(--accent)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'var(--border)';
+          e.currentTarget.style.color = 'var(--text-secondary)';
+        }}
         title="Upload file"
       >
         {uploading ? (

@@ -18,7 +18,7 @@ export default function SocialLinks() {
 
   return (
     <div>
-      <h3 className="text-sm font-bold text-white mb-3">Connect</h3>
+      <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Connect</h3>
       <div className="flex flex-wrap gap-2">
         {content.socials.map((social, index) => {
           const IconComponent = socialIconMap[social.icon] || Globe;
@@ -33,9 +33,22 @@ export default function SocialLinks() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
               whileHover={{ y: -3, scale: 1.1 }}
-              className="bg-[#1E1E1E] border border-white/20 rounded-lg p-2 hover:border-[#EF4444]/40 hover:bg-[#EF4444]/10 transition-colors duration-200 group"
+              className="border rounded-lg p-2 transition-all duration-200"
+              style={{
+                backgroundColor: 'var(--card-alt)',
+                borderColor: 'var(--border)',
+                color: 'var(--text-secondary)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--accent)';
+                e.currentTarget.style.color = 'var(--accent)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.color = 'var(--text-secondary)';
+              }}
             >
-              <IconComponent className="w-3.5 h-3.5 text-[#888] group-hover:text-[#EF4444] transition-colors" />
+              <IconComponent className="w-3.5 h-3.5" />
             </motion.a>
           );
         })}

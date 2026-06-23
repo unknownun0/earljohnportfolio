@@ -8,7 +8,7 @@ export default function Background() {
       <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="tech-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#EF4444" strokeWidth="0.5" />
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="var(--accent)" strokeWidth="0.5" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#tech-grid)" />
@@ -17,7 +17,7 @@ export default function Background() {
       <svg className="absolute bottom-0 left-0 w-full h-[60vh]" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <motion.path
           d="M0,400 C320,300 480,500 720,400 C960,300 1120,500 1440,400 L1440,600 L0,600 Z"
-          fill="rgba(239, 68, 68, 0.04)"
+          style={{ fill: 'rgba(var(--accent-rgb), 0.04)' }}
           animate={{
             d: [
               "M0,400 C320,300 480,500 720,400 C960,300 1120,500 1440,400 L1440,600 L0,600 Z",
@@ -29,7 +29,7 @@ export default function Background() {
         />
         <motion.path
           d="M0,500 C320,600 480,400 720,500 C960,600 1120,400 1440,500 L1440,600 L0,600 Z"
-          fill="rgba(239, 68, 68, 0.025)"
+          style={{ fill: 'rgba(var(--accent-rgb), 0.025)' }}
           animate={{
             d: [
               "M0,500 C320,600 480,400 720,500 C960,600 1120,400 1440,500 L1440,600 L0,600 Z",
@@ -41,7 +41,7 @@ export default function Background() {
         />
         <motion.path
           d="M0,550 C320,480 480,620 720,550 C960,480 1120,620 1440,550 L1440,600 L0,600 Z"
-          fill="rgba(239, 68, 68, 0.015)"
+          style={{ fill: 'rgba(var(--accent-rgb), 0.015)' }}
           animate={{
             d: [
               "M0,550 C320,480 480,620 720,550 C960,480 1120,620 1440,550 L1440,600 L0,600 Z",
@@ -56,10 +56,11 @@ export default function Background() {
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-[2px] h-[2px] rounded-full bg-[#EF4444]"
+          className="absolute w-[2px] h-[2px] rounded-full"
           style={{
             left: `${12 + i * 16}%`,
             top: `${60 + (i % 3) * 10}%`,
+            backgroundColor: 'var(--accent)',
           }}
           animate={{
             y: [0, -40, 0],

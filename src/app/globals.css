@@ -1,31 +1,73 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
-  --color-background: #0B0B0B;
-  --color-card: #151515;
-  --color-card-hover: #1E1E1E;
-  --color-accent: #EF4444;
-  --color-accent-hover: #B91C1C;
-  --color-muted: #888888;
-  --color-border: rgba(255, 255, 255, 0.2);
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-card-alt: var(--card-alt);
+  --color-card-hover: var(--card-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-border: var(--border);
+  --color-accent-rgb: var(--accent-rgb);
+  --color-bg-rgb: var(--bg-rgb);
   --font-sans: "Inter", sans-serif;
   --font-mono: "Inter", monospace;
 }
 
+:root {
+  --bg: #FFFFFF;
+  --bg-rgb: 255, 255, 255;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --card: #F4F7FA;
+  --card-alt: #E8EDF2;
+  --card-hover: #EEF1F5;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --accent: #2563EB;
+  --accent-rgb: 37, 99, 235;
+  --accent-hover: #1D4ED8;
+  --border: rgba(15, 23, 42, 0.1);
+  --selection-bg: #2563EB;
+}
+
+.dark {
+  --bg: #0B0F19;
+  --bg-rgb: 11, 15, 25;
+  --nav-bg: rgba(11, 15, 25, 0.8);
+  --card: #1E293B;
+  --card-alt: #334155;
+  --card-hover: #2D3A4F;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent: #3B82F6;
+  --accent-rgb: 59, 130, 246;
+  --accent-hover: #60A5FA;
+  --border: rgba(255, 255, 255, 0.2);
+  --selection-bg: #3B82F6;
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: #333 #0B0B0B;
+  scrollbar-color: var(--accent) var(--bg);
 }
 
 body {
-  background: #0B0B0B;
-  color: #ffffff;
+  background: var(--bg);
+  color: var(--text-primary);
   font-family: "Inter", sans-serif;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
-  background: #EF4444;
+  background: var(--selection-bg);
   color: #ffffff;
 }
 
@@ -52,7 +94,7 @@ body {
   content: '';
   position: absolute;
   inset: -50%;
-  background: conic-gradient(from 0deg, #EF4444, #DC2626, #B91C1C, #EF4444, #DC2626, #B91C1C, #EF4444);
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-hover), var(--accent), var(--accent-hover), var(--accent));
   animation: spin-gradient 6s linear infinite;
   z-index: 0;
   pointer-events: none;
@@ -67,5 +109,6 @@ body {
   z-index: 1;
   margin: 1px;
   border-radius: calc(1rem - 1px);
-  background: #151515;
+  background: var(--card);
+  transition: background-color 0.3s ease;
 }

@@ -33,7 +33,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
         onClick={onClose}
       >
         <motion.div
@@ -42,7 +43,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0, scale: 0.9, y: 40 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-[#151515] border border-white/20 rounded-2xl overflow-hidden max-w-lg w-full max-h-[85vh] overflow-y-auto"
+          className="border rounded-2xl overflow-hidden max-w-lg w-full max-h-[85vh] overflow-y-auto"
+          style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' }}
         >
           <div className="relative">
             {project.video ? (
@@ -57,8 +59,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             ) : project.image ? (
               <>
                 {!mediaLoaded && (
-                  <div className="w-full aspect-video bg-[#1E1E1E] flex items-center justify-center">
-                    <span className="text-xs text-[#888] animate-pulse">Loading...</span>
+                  <div className="w-full aspect-video flex items-center justify-center" style={{ backgroundColor: 'var(--card-alt)' }}>
+                    <span className="text-xs animate-pulse" style={{ color: 'var(--text-secondary)' }}>Loading...</span>
                   </div>
                 )}
                 <img
@@ -69,19 +71,23 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 />
               </>
             ) : (
-              <div className="w-full aspect-video bg-[#1E1E1E] flex items-center justify-center">
-                <span className="text-xs text-[#888]">No media</span>
+              <div className="w-full aspect-video flex items-center justify-center" style={{ backgroundColor: 'var(--card-alt)' }}>
+                <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>No media</span>
               </div>
             )}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+              className="absolute top-3 right-3 w-8 h-8 rounded-full backdrop-blur-sm flex items-center justify-center transition-colors"
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', color: 'var(--text-primary)' }}
             >
               <X className="w-4 h-4" />
             </button>
             {project.featured && (
               <div className="absolute top-3 left-3">
-                <span className="text-[10px] font-medium text-[#EF4444] bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                <span
+                  className="text-[10px] font-medium backdrop-blur-sm px-2 py-0.5 rounded-full"
+                  style={{ color: 'var(--accent)', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
+                >
                   Featured
                 </span>
               </div>
@@ -89,9 +95,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="p-5 space-y-4">
-            <h2 className="text-lg font-bold text-white">{project.title}</h2>
-            <div className="w-8 h-[3px] bg-gradient-to-r from-[#EF4444] to-[#DC2626] rounded-full" />
-            <p className="text-sm text-[#888] leading-relaxed">
+            <h2 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{project.title}</h2>
+            <div className="w-8 h-[3px] rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)]" />
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {project.description}
             </p>
             {project.tags.length > 0 && (
@@ -99,7 +105,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full"
+                    className="text-[11px] px-3 py-1 rounded-full"
+                    style={{ color: 'var(--accent)', backgroundColor: 'rgba(var(--accent-rgb), 0.1)' }}
                   >
                     {tag}
                   </span>
@@ -111,7 +118,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-[#EF4444] hover:underline font-medium"
+                className="inline-flex items-center gap-1 text-sm hover:underline font-medium"
+                style={{ color: 'var(--accent)' }}
               >
                 Visit Live Site →
               </a>

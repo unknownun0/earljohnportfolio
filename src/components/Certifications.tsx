@@ -9,8 +9,8 @@ function CertImage({ src, alt }: { src: string; alt: string }) {
   return (
     <>
       {!loaded && (
-        <div className="w-full h-28 rounded-lg mb-2 bg-[#1E1E1E] flex items-center justify-center">
-          <span className="text-[10px] text-[#888] animate-pulse">Loading...</span>
+        <div className="w-full h-28 rounded-lg mb-2 flex items-center justify-center" style={{ backgroundColor: 'var(--card-alt)' }}>
+          <span className="text-[10px] animate-pulse" style={{ color: 'var(--text-secondary)' }}>Loading...</span>
         </div>
       )}
       <img
@@ -28,21 +28,24 @@ export default function Certifications() {
 
   return (
     <div>
-      <h2 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-        <span className="w-1 h-4 bg-[#EF4444] rounded-full" />
+      <h2 className="text-base font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+        <span className="w-1 h-4 rounded-full" style={{ backgroundColor: 'var(--accent)' }} />
         Certifications
       </h2>
       <div className="grid sm:grid-cols-3 gap-3">
         {content.certifications.map((cert) => (
           <div
             key={cert.id}
-            className="bg-[#1E1E1E] rounded-xl border border-white/20 p-3 hover:border-[#EF4444]/30 transition-all duration-200"
+            className="rounded-xl border p-3 transition-all duration-200"
+            style={{ backgroundColor: 'var(--card-alt)', borderColor: 'var(--border)' }}
+            onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
+            onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
           >
             {cert.image && <CertImage src={cert.image} alt={cert.title} />}
-            <span className="text-[10px] font-semibold text-white block text-center">
+            <span className="text-[10px] font-semibold block text-center" style={{ color: 'var(--text-primary)' }}>
               {cert.title}
             </span>
-            <p className="text-[9px] text-[#888] text-center">{cert.issuer}</p>
+            <p className="text-[9px] text-center" style={{ color: 'var(--text-secondary)' }}>{cert.issuer}</p>
           </div>
         ))}
       </div>
