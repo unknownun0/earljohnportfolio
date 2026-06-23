@@ -26,9 +26,9 @@ export default function Home() {
           <AnimatedCard delay={0.4} className="p-5"><SocialLinks /></AnimatedCard>
         </aside>
         <div id="about" className="lg:col-span-2 space-y-5">
-          <AnimatedCard delay={0} className="p-5"><Experience /></AnimatedCard>
+          <AnimatedCard delay={0} className="p-5"><Projects /></AnimatedCard>
           <AnimatedCard delay={0.1} className="p-5"><Education /></AnimatedCard>
-          <AnimatedCard delay={0.2} className="p-5"><Projects /></AnimatedCard>
+          <AnimatedCard delay={0.2} className="p-5"><Experience /></AnimatedCard>
           <AnimatedCard delay={0.3} className="p-5"><Certifications /></AnimatedCard>
         </div>
       </div>
