@@ -9,7 +9,6 @@ import Experience from "@/components/Experience";
 import TechStack from "@/components/TechStack";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
-import SocialLinks from "@/components/SocialLinks";
 import Footer from "@/components/Footer";
 import AnimatedCard from "@/components/AnimatedCard";
 
@@ -23,7 +22,6 @@ export default function Home() {
           <AnimatedCard delay={0.1} className="p-5"><div id="contact"><Contact /></div></AnimatedCard>
           <AnimatedCard delay={0.2} className="p-5"><Interests /></AnimatedCard>
           <AnimatedCard delay={0.3} className="p-5"><TechStack /></AnimatedCard>
-          <AnimatedCard delay={0.4} className="p-5"><SocialLinks /></AnimatedCard>
         </aside>
         <div id="about" className="lg:col-span-2 space-y-5">
           <AnimatedCard delay={0} className="p-5"><Projects /></AnimatedCard>
