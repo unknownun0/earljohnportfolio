@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaGoogle, FaWhatsapp, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaEnvelope, FaWhatsapp, FaFacebook, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
 import { useContent } from "@/context/ContentContext";
 import type { IconType } from "react-icons";
 
 const socialIconMap: Record<string, IconType> = {
   Code2: FaGithub,
-  Mail: FaGoogle,
+  Mail: FaEnvelope,
   MessageCircle: FaWhatsapp,
   Globe: FaFacebook,
-  Link2: FaLinkedin,
+  Link2: FaLinkedinIn,
   Camera: FaInstagram,
 };
 
