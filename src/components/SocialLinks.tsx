@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Link2, Camera, Globe, Mail, User } from "lucide-react";
+import { Code2, Link2, Camera, Globe, Mail, User, MessageCircle } from "lucide-react";
 import { useContent } from "@/context/ContentContext";
 
 const socialIconMap: Record<string, typeof Code2> = {
@@ -11,6 +11,7 @@ const socialIconMap: Record<string, typeof Code2> = {
   Globe,
   Mail,
   User,
+  MessageCircle,
 };
 
 export default function SocialLinks() {
@@ -18,7 +19,7 @@ export default function SocialLinks() {
 
   return (
     <div>
-      <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Connect</h3>
+      <h3 className="text-sm font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Contact me</h3>
       <div className="flex flex-wrap gap-2">
         {content.socials.map((social, index) => {
           const IconComponent = socialIconMap[social.icon] || Globe;

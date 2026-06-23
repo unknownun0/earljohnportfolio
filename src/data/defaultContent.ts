@@ -346,10 +346,11 @@ export const defaultContent: Content = {
     },
   ],
   socials: [
-    { id: "1", icon: "Code2", label: "GitHub", href: "#" },
-    { id: "2", icon: "Link2", label: "LinkedIn", href: "#" },
-    { id: "3", icon: "Camera", label: "Instagram", href: "#" },
-    { id: "4", icon: "Globe", label: "Portfolio", href: "#" },
-    { id: "5", icon: "Mail", label: "Email", href: "mailto:earljohngomez66@gmail.com" },
+    { id: "1", icon: "Code2", label: "GitHub", href: "https://github.com/unknownun0" },
+    { id: "2", icon: "Mail", label: "Gmail", href: "mailto:earljohngomez66@gmail.com" },
+    { id: "3", icon: "MessageCircle", label: "WhatsApp", href: "https://wa.me/639624238760" },
+    { id: "4", icon: "Globe", label: "Facebook", href: "https://www.facebook.com/itsm3earljohn" },
+    { id: "5", icon: "Link2", label: "LinkedIn", href: "https://www.linkedin.com/in/earl-john-gomez-93b51532b/" },
+    { id: "6", icon: "Camera", label: "Instagram", href: "https://www.instagram.com/itsm3_earl/" },
   ],
 };

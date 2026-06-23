@@ -1064,7 +1064,7 @@ function SocialsEditor({
             </button>
           </div>
           <InputField
-            label="Icon name (Code2, Link2, Camera, Globe, Mail)"
+            label="Icon name (Code2, Link2, Camera, Globe, Mail, MessageCircle)"
             value={item.icon}
             onChange={(v) => update((d) => (d.socials[i].icon = v))}
           />
