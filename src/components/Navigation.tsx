@@ -71,6 +71,9 @@ export default function Navigation() {
                 {item.label}
               </a>
             ))}
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </div>
         </motion.div>
       )}
