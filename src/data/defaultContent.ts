@@ -7,6 +7,7 @@ export interface Project {
   image: string;
   video: string;
   link?: string;
+  status?: string;
 }
 
 export interface Experience {
@@ -122,7 +123,7 @@ export const defaultContent: Content = {
         "A photography booking & management system built with CodeIgniter 3/PHP. Features a public landing page with portfolio (image/video), packages, multi-step booking (date → package → details → venue → submit), date availability check, and OTP registration. Client portal includes a dashboard with booking timeline, accept quotes, upload payment proof, digitally sign contracts, rate/review, view albums, real-time chat with admin, and profile management. Admin panel handles full booking lifecycle, payment verification, auto-generated contracts, calendar view, package/add-on CRUD, portfolio management, client management, album/media management, real-time chat, SMTP settings, and gallery import. Notifications include email alerts for booking, quotation, payment, contract, OTP, and drive link sharing.",
       tags: ["CodeIgniter", "PHP", "MySQL", "JavaScript", "Bootstrap", "AJAX"],
       featured: true,
-      image: "https://placehold.co/600x400/151515/EF4444?text=PhotoCabin",
+      image: "/uploads/image/photocabin.png",
       video: "/uploads/video/photocabin.mp4",
     },
     {
@@ -142,7 +143,7 @@ export const defaultContent: Content = {
         "An online booking platform for bus private tours. Customers can browse tour packages, check availability, and book private bus tours with ease.",
       tags: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
       featured: false,
-      image: "https://placehold.co/600x400/151515/EF4444?text=Roma+Tour",
+      image: "/uploads/image/romatours.png",
       video: "/uploads/video/romaoturs%20(1).mp4",
     },
     {
@@ -152,7 +153,7 @@ export const defaultContent: Content = {
         "A memorial/home services website built with Next.js 14, React 18, and Tailwind CSS. Features a single-page layout with Navbar, Hero, StatsCounter, About, Services, MoreServices, WhyChooseUs, Gallery, Reviews, Contact form (Nodemailer), and scroll animations. Deployed via Vercel.",
       tags: ["Next.js", "React", "Tailwind CSS", "Nodemailer", "Vercel"],
       featured: false,
-    image: "/uploads/image/profile.png",
+    image: "/uploads/image/memorial.png",
       video: "/uploads/video/memorial.mp4",
       link: "https://memorial-cyan.vercel.app/",
     },
@@ -173,8 +174,18 @@ export const defaultContent: Content = {
         "A sari-sari store management system with inventory tracking, sales monitoring, and reporting features.",
       tags: ["PHP", "MySQL", "Bootstrap"],
       featured: false,
-      image: "",
+      image: "/uploads/image/pos.png",
       video: "/uploads/video/sari%20sari.mp4",
+    },
+    {
+      id: "7",
+      title: "HeritagePark.com",
+      description: "A heritage park management and booking website. Currently under development.",
+      tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Vercel"],
+      featured: false,
+      image: "",
+      video: "",
+      status: "On Progress",
     },
   ],
   experience: [

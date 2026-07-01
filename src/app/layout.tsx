@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ContentProvider } from "@/context/ContentContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Background from "@/components/Background";
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} h-full antialiased dark`} suppressHydrationWarning>
+    <html lang="en" className={`${jetbrainsMono.variable} h-full antialiased dark`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <Background />
         <div className="relative z-10 flex flex-col min-h-full">
