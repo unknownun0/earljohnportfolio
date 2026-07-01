@@ -18,18 +18,21 @@ function SkillsView() {
           <h3 style={{ color: "var(--ig-text)", fontSize: "16px", fontWeight: 600, marginBottom: "14px" }}>
             {group.category}
           </h3>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             {group.items.map((item) => {
               const level = content.skillLevels?.[item] ?? 0;
               return (
-                <div key={item} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
-                    <span style={{ color: "var(--ig-text)", fontWeight: 500 }}>{item}</span>
-                    <span style={{ color: "var(--ig-blue)", fontWeight: 600 }}>{level}%</span>
-                  </div>
+                <div key={item} style={{
+                  display: "flex", alignItems: "center", gap: "12px",
+                  padding: "10px 14px",
+                  background: "var(--ig-hover-bg)",
+                  borderRadius: "8px",
+                  border: "1px solid var(--ig-border)",
+                }}>
+                  <span style={{ flex: 1, color: "var(--ig-text)", fontSize: "13px", fontWeight: 500 }}>{item}</span>
                   <div style={{
-                    width: "100%", height: "6px", borderRadius: "3px",
-                    background: "var(--ig-hover-bg)", overflow: "hidden",
+                    flex: "0 0 160px", height: "6px", borderRadius: "3px",
+                    background: "var(--ig-elevated)", overflow: "hidden",
                   }}>
                     <div style={{
                       width: `${level}%`, height: "100%", borderRadius: "3px",
@@ -37,6 +40,10 @@ function SkillsView() {
                       transition: "width 0.8s ease",
                     }} />
                   </div>
+                  <span style={{
+                    flex: "0 0 40px", textAlign: "right",
+                    color: "var(--ig-blue)", fontSize: "12px", fontWeight: 600,
+                  }}>{level}%</span>
                 </div>
               );
             })}
