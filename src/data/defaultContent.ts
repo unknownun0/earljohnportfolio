@@ -56,6 +56,8 @@ export interface TechGroup {
   items: string[];
 }
 
+export type SkillLevels = Record<string, number>;
+
 export interface Content {
   hero: {
     name: string;
@@ -68,6 +70,7 @@ export interface Content {
   projects: Project[];
   experience: Experience[];
   techStack: TechGroup[];
+  skillLevels: SkillLevels;
   certifications: Certification[];
   contact: ContactItem[];
   socials: SocialItem[];
@@ -303,6 +306,15 @@ export const defaultContent: Content = {
       ],
     },
   ],
+  skillLevels: {
+    "JavaScript": 92, "TypeScript": 85, "React": 88, "Next.js": 85, "Vue.js": 70, "Tailwind CSS": 90, "SCSS": 78, "Styled Components": 72, "Vite": 75, "Webpack": 65, "ESLint": 72, "Prettier": 70,
+    "Node.js": 82, "Python": 78, "Java": 68, "PHP": 88, "Express.js": 80, "NestJS": 60, "FastAPI": 55, "Spring Boot": 50, "Laravel": 65, "PostgreSQL": 72, "MySQL": 85,
+    "AWS": 62, "GitHub Actions": 75, "GitLab CI": 55, "AWS CloudFormation": 40,
+    "TensorFlow": 40, "PyTorch": 35, "LangChain": 45, "Transformers": 50, "OpenAI": 58,
+    "AWS IAM": 45, "Auth0": 50,
+    "Git": 90, "GitHub": 92, "GitLab": 65, "Bitbucket": 55, "VS Code": 95, "JetBrains IntelliJ": 60, "PyCharm": 55, "Discord": 70, "Teams": 65,
+    "WordPress": 82, "Strapi": 60, "Bubble": 50, "Webflow": 55, "Microsoft Power Platform": 45,
+  },
   certifications: [
     {
       id: "1",

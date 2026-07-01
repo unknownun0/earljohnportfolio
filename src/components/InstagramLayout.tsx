@@ -14,26 +14,32 @@ function SkillsView() {
   return (
     <div style={{ maxWidth: "935px", margin: "0 auto", padding: "24px" }}>
       {content.techStack.map((group) => (
-        <div key={group.id} style={{ marginBottom: "28px" }}>
-          <h3 style={{ color: "var(--ig-text)", fontSize: "16px", fontWeight: 600, marginBottom: "10px" }}>
+        <div key={group.id} style={{ marginBottom: "32px" }}>
+          <h3 style={{ color: "var(--ig-text)", fontSize: "16px", fontWeight: 600, marginBottom: "14px" }}>
             {group.category}
           </h3>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-            {group.items.map((item) => (
-              <span
-                key={item}
-                style={{
-                  background: "var(--ig-hover-bg)",
-                  color: "var(--ig-text-secondary)",
-                  fontSize: "13px",
-                  padding: "6px 14px",
-                  borderRadius: "6px",
-                  border: "1px solid var(--ig-border)",
-                }}
-              >
-                {item}
-              </span>
-            ))}
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {group.items.map((item) => {
+              const level = content.skillLevels?.[item] ?? 0;
+              return (
+                <div key={item} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
+                    <span style={{ color: "var(--ig-text)", fontWeight: 500 }}>{item}</span>
+                    <span style={{ color: "var(--ig-blue)", fontWeight: 600 }}>{level}%</span>
+                  </div>
+                  <div style={{
+                    width: "100%", height: "6px", borderRadius: "3px",
+                    background: "var(--ig-hover-bg)", overflow: "hidden",
+                  }}>
+                    <div style={{
+                      width: `${level}%`, height: "100%", borderRadius: "3px",
+                      background: "var(--ig-blue)",
+                      transition: "width 0.8s ease",
+                    }} />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       ))}
