@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Laptop, Briefcase, Camera, Moon, Sun } from "lucide-react";
+import { Home, Laptop, Briefcase, FileText, Moon, Sun } from "lucide-react";
 import { useContent } from "@/context/ContentContext";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -18,7 +18,7 @@ export default function InstagramSidebar() {
   return (
     <aside className="ig-sidebar">
       <div className="ig-sidebar-logo">
-        <Camera className="w-6 h-6" />
+        <Laptop className="w-6 h-6" />
       </div>
 
       <nav className="ig-sidebar-nav">
