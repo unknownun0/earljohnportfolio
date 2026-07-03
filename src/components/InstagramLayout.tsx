@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import InstagramSidebar from "./InstagramSidebar";
 import InstagramProfile from "./InstagramProfile";
-import InstagramTabs from "./InstagramTabs";
 import InstagramGrid from "./InstagramGrid";
 import FloatingSocials from "./FloatingSocials";
 import { useContent } from "@/context/ContentContext";
@@ -12,7 +10,8 @@ import { useTheme } from "@/context/ThemeContext";
 function SkillsView() {
   const { content } = useContent();
   return (
-    <div style={{ maxWidth: "935px", margin: "0 auto", padding: "24px" }}>
+    <section style={{ maxWidth: "935px", margin: "0 auto", padding: "24px" }}>
+      <h2 style={{ color: "var(--ig-text)", fontSize: "18px", fontWeight: 700, marginBottom: "20px", letterSpacing: "0.3px" }}>Skills</h2>
       {content.techStack.map((group) => (
         <div key={group.id} style={{ marginBottom: "32px" }}>
           <h3 style={{ color: "var(--ig-text)", fontSize: "16px", fontWeight: 600, marginBottom: "14px" }}>
@@ -49,14 +48,15 @@ function SkillsView() {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 }
 
 function ExperienceView() {
   const { content } = useContent();
   return (
-    <div style={{ maxWidth: "935px", margin: "0 auto", padding: "24px" }}>
+    <section style={{ maxWidth: "935px", margin: "0 auto", padding: "0 24px 24px" }}>
+      <h2 style={{ color: "var(--ig-text)", fontSize: "18px", fontWeight: 700, marginBottom: "16px", letterSpacing: "0.3px" }}>Experience</h2>
       {content.experience.map((exp, i) => (
         <div
           key={exp.id}
@@ -107,26 +107,12 @@ function ExperienceView() {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 }
 
 export default function InstagramLayout() {
-  const { content } = useContent();
   const { theme } = useTheme();
-  const [activeTab, setActiveTab] = useState("grid");
-
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash === "skills" || hash === "experience") setActiveTab(hash);
-    const onHashChange = () => {
-      const h = window.location.hash.replace("#", "");
-      if (h === "skills" || h === "experience") setActiveTab(h);
-      else setActiveTab("grid");
-    };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
 
   return (
     <div className={`ig-theme${theme === "light" ? " light-mode" : ""}`} style={{ minHeight: "100vh" }}>
@@ -137,17 +123,18 @@ export default function InstagramLayout() {
           <InstagramProfile />
         </div>
 
-        <InstagramTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        <InstagramGrid />
 
-        <div className="ig-grid-wrapper" style={{ marginTop: "4px" }}>
-          {activeTab === "grid" && <InstagramGrid />}
-          {activeTab === "skills" && <SkillsView />}
-          {activeTab === "experience" && <ExperienceView />}
-        </div>
+        <hr style={{ border: "none", borderTop: "1px solid var(--ig-border)", margin: "0 24px" }} />
+
+        <SkillsView />
+
+        <hr style={{ border: "none", borderTop: "1px solid var(--ig-border)", margin: "0 24px" }} />
+
+        <ExperienceView />
       </main>
 
       <FloatingSocials />
-
 
     </div>
   );

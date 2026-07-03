@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, GraduationCap } from "lucide-react";
-import { FaGithub, FaEnvelope, FaWhatsapp, FaFacebook, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaEnvelope, FaWhatsapp, FaFacebook, FaLinkedinIn, FaLaptop } from "react-icons/fa6";
 import { useContent } from "@/context/ContentContext";
 import type { IconType } from "react-icons";
 
@@ -19,7 +19,7 @@ const socialIconMap: Record<string, IconType> = {
   MessageCircle: FaWhatsapp,
   Globe: FaFacebook,
   Link2: FaLinkedinIn,
-  Camera: FaInstagram,
+  Camera: FaLaptop,
 };
 
 export default function Contact() {

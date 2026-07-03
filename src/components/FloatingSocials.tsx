@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
-import { FaGithub, FaFacebook, FaInstagram, FaLinkedinIn, FaEnvelope, FaWhatsapp } from "react-icons/fa6";
+import { FaGithub, FaFacebook, FaLinkedinIn, FaEnvelope, FaWhatsapp, FaLaptop } from "react-icons/fa6";
 import { useContent } from "@/context/ContentContext";
 
 const iconMap: Record<string, React.ElementType> = {
   Code2: FaGithub,
   Globe: FaFacebook,
-  Camera: FaInstagram,
+  Camera: FaLaptop,
   Link2: FaLinkedinIn,
   Mail: FaEnvelope,
   MessageCircle: FaWhatsapp,
