@@ -1,7 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import InstagramSidebar from "./InstagramSidebar";
 import InstagramProfile from "./InstagramProfile";
+import InstagramTabs from "./InstagramTabs";
 import InstagramGrid from "./InstagramGrid";
 import FloatingSocials from "./FloatingSocials";
 import { useContent } from "@/context/ContentContext";
@@ -112,7 +114,21 @@ function ExperienceView() {
 }
 
 export default function InstagramLayout() {
+  const { content } = useContent();
   const { theme } = useTheme();
+  const [activeTab, setActiveTab] = useState("grid");
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash === "skills" || hash === "experience") setActiveTab(hash);
+    const onHashChange = () => {
+      const h = window.location.hash.replace("#", "");
+      if (h === "skills" || h === "experience") setActiveTab(h);
+      else setActiveTab("grid");
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return (
     <div className={`ig-theme${theme === "light" ? " light-mode" : ""}`} style={{ minHeight: "100vh" }}>
@@ -123,15 +139,13 @@ export default function InstagramLayout() {
           <InstagramProfile />
         </div>
 
-        <InstagramGrid />
+        <InstagramTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <hr style={{ border: "none", borderTop: "1px solid var(--ig-border)", margin: "0 24px" }} />
-
-        <SkillsView />
-
-        <hr style={{ border: "none", borderTop: "1px solid var(--ig-border)", margin: "0 24px" }} />
-
-        <ExperienceView />
+        <div className="ig-grid-wrapper" style={{ marginTop: "4px" }}>
+          {activeTab === "grid" && <InstagramGrid />}
+          {activeTab === "skills" && <SkillsView />}
+          {activeTab === "experience" && <ExperienceView />}
+        </div>
       </main>
 
       <FloatingSocials />
