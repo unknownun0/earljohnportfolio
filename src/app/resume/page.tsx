@@ -216,10 +216,11 @@ export default function ResumePage() {
           </Section>
         </div>
       </div>
+    </div>
     </>
   );
 }
-
+                                        
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "12px" }}>
