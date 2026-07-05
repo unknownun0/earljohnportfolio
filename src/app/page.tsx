@@ -1,7 +1,7 @@
 "use client";
 
-import InstagramLayout from "@/components/InstagramLayout";
+import FacebookLayout from "@/components/FacebookLayout";
 
 export default function Home() {
-  return <InstagramLayout />;
+  return <FacebookLayout />;
 }
