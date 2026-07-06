@@ -1390,17 +1390,20 @@ body {
 
 /* ===== JARVIS Theme ===== */
 .j-theme {
-  --j-bg: #0a0e17;
-  --j-card: rgba(12, 22, 48, 0.7);
-  --j-card-solid: #0f192f;
-  --j-text: #e0f0ff;
-  --j-text-dim: #6a8bbf;
-  --j-blue: #00d4ff;
-  --j-blue-glow: rgba(0, 212, 255, 0.25);
-  --j-blue-dim: rgba(0, 212, 255, 0.08);
-  --j-border: rgba(0, 212, 255, 0.15);
-  --j-border-glow: 0 0 2px rgba(0, 212, 255, 0.3), 0 0 8px rgba(0, 212, 255, 0.1);
-  --j-hover: rgba(0, 212, 255, 0.06);
+  --j-bg: #0a0808;
+  --j-card: rgba(40, 12, 12, 0.6);
+  --j-card-solid: #1a0a0a;
+  --j-text: #f0e0d0;
+  --j-text-dim: #a08070;
+  --j-blue: #FFD700;
+  --j-blue-glow: rgba(255, 215, 0, 0.3);
+  --j-blue-dim: rgba(255, 215, 0, 0.08);
+  --j-border: rgba(230, 36, 41, 0.25);
+  --j-border-glow: 0 0 2px rgba(255, 215, 0, 0.3), 0 0 8px rgba(230, 36, 41, 0.15);
+  --j-hover: rgba(255, 215, 0, 0.06);
+  --j-red: #E62429;
+  --j-red-glow: rgba(230, 36, 41, 0.3);
+  --j-arc: #00BFFF;
   font-family: "JetBrains Mono", "SF Mono", "Fira Code", "Menlo", "Consolas", monospace;
   font-variant-ligatures: common-ligatures discretionary-ligatures;
   font-feature-settings: "liga" 1, "calt" 1, "ss01" 1, "cv01" 1, "cv02" 1;
@@ -1424,7 +1427,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(230, 36, 41, 0.6), rgba(255, 215, 0, 0.6), transparent);
   z-index: 9999;
   pointer-events: none;
   animation: jScan 4s ease-in-out infinite;
@@ -1685,14 +1688,14 @@ body {
 }
 
 .j-btn-primary {
-  background: var(--j-blue);
-  color: #0a0e17;
-  border-color: var(--j-blue);
+  background: var(--j-red);
+  color: #fff;
+  border-color: var(--j-red);
 }
 
 .j-btn-primary:hover {
-  box-shadow: 0 0 20px var(--j-blue-glow);
-  color: #0a0e17;
+  box-shadow: 0 0 20px var(--j-red-glow);
+  color: #fff;
 }
 
 /* Card */
@@ -1890,8 +1893,8 @@ body {
 .j-skill-fill {
   height: 100%;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--j-blue), #4fc3f7);
-  box-shadow: 0 0 6px var(--j-blue-glow);
+  background: linear-gradient(90deg, var(--j-red), var(--j-blue));
+  box-shadow: 0 0 6px var(--j-red-glow);
   transition: width 0.8s ease;
 }
 
@@ -2077,7 +2080,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--j-border);
+  border: 1px solid var(--j-red);
   background: var(--j-card);
   backdrop-filter: blur(12px);
   color: var(--j-blue);
@@ -2086,11 +2089,11 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 0 16px var(--j-blue-glow);
+  box-shadow: 0 0 16px var(--j-red-glow);
 }
 
 .j-fab-btn:hover {
-  box-shadow: 0 0 24px var(--j-blue-glow);
+  box-shadow: 0 0 24px var(--j-red-glow);
   border-color: var(--j-blue);
 }
 

@@ -159,7 +159,7 @@ export default function JarvisLayout() {
       <header className="j-topbar">
         <div className="j-logo">
           <div className="j-logo-dot" />
-          <span>J.A.R.V.I.S</span>
+          <span>IRON MAN</span>
         </div>
         <div className="j-topbar-center">
           {tabs.map((t) => (
@@ -181,18 +181,25 @@ export default function JarvisLayout() {
           <div className="j-profile">
             <div className="j-avatar-ring">
               <svg viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(0,212,255,0.15)" strokeWidth="1" />
-                <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(0,212,255,0.4)" strokeWidth="1.5" strokeDasharray="4 6" />
-                <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(0,212,255,0.08)" strokeWidth="0.5" />
+                <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(230,36,41,0.25)" strokeWidth="1.5" />
+                <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(255,215,0,0.5)" strokeWidth="2" strokeDasharray="4 8" />
+                <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,215,0,0.15)" strokeWidth="0.5" />
+                <circle cx="60" cy="60" r="4" fill="#00BFFF" filter="url(#arcGlow)" />
+                <defs>
+                  <radialGradient id="arcGlow">
+                    <stop offset="0%" stopColor="#00BFFF" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#00BFFF" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
               </svg>
-              <div className="j-avatar-inner">
+              <div className="j-avatar-inner" style={{ border: "2px solid rgba(255,215,0,0.4)" }}>
                 {content.hero.image ? <img src={content.hero.image} alt={content.hero.name} /> : null}
               </div>
             </div>
             <div className="j-profile-info">
               <h1 className="j-name">
                 {content.hero.name}
-                <small>STATUS: ACTIVE</small>
+                <small>IRON MAN SUIT: MK III</small>
               </h1>
               <div className="j-bio-line">Turning ideas into digital solutions</div>
               <div className="j-bio-line" style={{ color: "var(--j-blue)", fontSize: "11px" }}>Web Dev | Graphic Design | SMM</div>
