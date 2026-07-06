@@ -1,7 +1,7 @@
 "use client";
 
-import FacebookLayout from "@/components/FacebookLayout";
+import JarvisLayout from "@/components/JarvisLayout";
 
 export default function Home() {
-  return <FacebookLayout />;
+  return <JarvisLayout />;
 }
