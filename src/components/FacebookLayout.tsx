@@ -5,6 +5,7 @@ import { Home, Laptop, Briefcase, MessageCircle, Heart, Share2, ThumbsUp, Play }
 import { useContent } from "@/context/ContentContext";
 import { useTheme } from "@/context/ThemeContext";
 import FacebookTopbar from "./FacebookTopbar";
+import MatrixRain from "./MatrixRain";
 import ProjectModal from "./ProjectModal";
 import type { Project } from "@/data/defaultContent";
 
@@ -188,10 +189,8 @@ export default function FacebookLayout() {
         {/* Main */}
         <main className="fb-main">
           {/* Profile Card */}
-          <div className="fb-cover">
-            <div className="fb-cover-image">
-              <div className="fb-cover-gradient" />
-            </div>
+          <div className="fb-cover" style={{ overflow: "visible" }}>
+            <MatrixRain height={200} />
             <div className="fb-profile-row">
               <div className="fb-avatar-large">
                 {content.hero.image ? <img src={content.hero.image} alt={content.hero.name} /> : null}
