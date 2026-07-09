@@ -2146,15 +2146,15 @@ body {
 /* ===== Professional Theme ===== */
 .p-theme {
   --p-bg: #ffffff;
-  --p-surface: #f5f5f5;
+  --p-surface: #ffffff;
   --p-card: #ffffff;
   --p-text: #000000;
-  --p-text-secondary: #555555;
-  --p-border: #dddddd;
+  --p-text-secondary: #000000;
+  --p-border: #000000;
   --p-accent: #000000;
-  --p-accent-hover: #333333;
+  --p-accent-hover: #000000;
   --p-overlay: rgba(0,0,0,0.04);
-  --p-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --p-shadow: none;
   font-family: "JetBrains Mono", "SF Mono", "Fira Code", "Menlo", "Consolas", monospace;
   font-variant-ligatures: common-ligatures discretionary-ligatures;
   font-feature-settings: "liga" 1, "calt" 1, "ss01" 1, "cv01" 1, "cv02" 1;
@@ -2165,15 +2165,15 @@ body {
 
 .p-theme.dark {
   --p-bg: #000000;
-  --p-surface: #111111;
-  --p-card: #111111;
+  --p-surface: #000000;
+  --p-card: #000000;
   --p-text: #ffffff;
-  --p-text-secondary: #888888;
-  --p-border: #222222;
+  --p-text-secondary: #ffffff;
+  --p-border: #ffffff;
   --p-accent: #ffffff;
-  --p-accent-hover: #cccccc;
+  --p-accent-hover: #ffffff;
   --p-overlay: rgba(255,255,255,0.04);
-  --p-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --p-shadow: none;
 }
 
 .p-nav {
