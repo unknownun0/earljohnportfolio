@@ -26,8 +26,7 @@ export async function POST(request: Request) {
     const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
     const dir = path.join(process.cwd(), "public", "uploads");
 
-    await mkdir(dir, { recursive: true });
-    const buffer = Buffer.from(await file.arrayBuffer());
+    await mkdir(dir, { recursive: true });    const buffer = Buffer.from(await file.arrayBuffer());
     await writeFile(path.join(dir, filename), buffer);
 
     return NextResponse.json({ url: `/uploads/${filename}` });

@@ -1,7 +1,7 @@
 "use client";
 
-import JarvisLayout from "@/components/JarvisLayout";
+import ProfessionalLayout from "@/components/ProfessionalLayout";
 
 export default function Home() {
-  return <JarvisLayout />;
+  return <ProfessionalLayout />;
 }
