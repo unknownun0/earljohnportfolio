@@ -2547,9 +2547,8 @@ body {
 /* Certificates */
 .p-certs {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .p-certs::-webkit-scrollbar { display: none; }
