@@ -71,6 +71,7 @@ export default function ProfessionalLayout() {
             <span><strong style={{ color: "var(--p-text)" }}>{stats.exp}</strong> Contributions</span>
             <span><strong style={{ color: "var(--p-text)" }}>{stats.skills}</strong> Skills</span>
           </div>
+          <hr style={{ margin: "40px auto 0", maxWidth: 600, border: "none", borderTop: "1px solid var(--p-border)" }} />
         </section>
 
         {/* Two-column layout */}
