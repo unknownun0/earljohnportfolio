@@ -128,6 +128,7 @@ export const defaultContent: Content = {
       image: "",
       video: "",
       status: "On Progress",
+      link: "https://heritagepark.vercel.app/",
     },
     {
       id: "1",

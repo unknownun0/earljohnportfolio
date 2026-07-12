@@ -100,6 +100,11 @@ export default function ProfessionalLayout() {
                     <p className="p-project-desc">{p.description}</p>
                     <div className="p-project-tags">
                       {p.tags.map((t) => <span key={t} className="p-project-tag">{t}</span>)}
+                      {p.link && (
+                        <a href={p.link} target="_blank" rel="noopener noreferrer" className="p-project-tag" style={{ textDecoration: "none", background: "var(--p-text)", color: "var(--p-bg)", fontWeight: 700 }} onClick={(e) => e.stopPropagation()}>
+                          Visit Site &rarr;
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
