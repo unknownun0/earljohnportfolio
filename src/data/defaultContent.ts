@@ -120,6 +120,16 @@ export const defaultContent: Content = {
   ],
   projects: [
     {
+      id: "7",
+      title: "HeritagePark.com",
+      description: "A heritage park management and booking website. Currently under development.",
+      tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Vercel"],
+      featured: true,
+      image: "",
+      video: "",
+      status: "On Progress",
+    },
+    {
       id: "1",
       title: "PhotoCabin",
       description:
@@ -179,16 +189,6 @@ export const defaultContent: Content = {
       featured: false,
       image: "/uploads/image/pos.png",
       video: "/uploads/video/sari%20sari.mp4",
-    },
-    {
-      id: "7",
-      title: "HeritagePark.com",
-      description: "A heritage park management and booking website. Currently under development.",
-      tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Vercel"],
-      featured: false,
-      image: "",
-      video: "",
-      status: "On Progress",
     },
   ],
   experience: [
