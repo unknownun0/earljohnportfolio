@@ -2556,18 +2556,17 @@ body {
 
 .p-cert-card {
   flex-shrink: 0;
-  width: 120px;
-  text-align: center;
+  width: 140px;
   cursor: pointer;
 }
 
 .p-cert-thumb {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid var(--p-border);
+  width: 140px;
+  height: 90px;
+  border-radius: 6px;
+  border: 1px solid var(--p-border);
   overflow: hidden;
-  margin: 0 auto 8px;
+  margin: 0 0 6px;
   background: var(--p-surface);
   transition: border-color 0.2s;
 }
@@ -2586,6 +2585,7 @@ body {
   font-size: 10px;
   color: var(--p-text-secondary);
   line-height: 1.3;
+  text-align: left;
 }
 
 /* Two-column layout */
