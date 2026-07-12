@@ -172,16 +172,6 @@ export const defaultContent: Content = {
       link: "https://memorial-cyan.vercel.app/",
     },
     {
-      id: "5",
-      title: "Portfolio Website",
-      description:
-        "My personal portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion. Features a dark-themed resume layout with animated borders, an admin panel for content management, and IndexedDB persistence. Deployed on Vercel.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-      featured: true,
-      image: "/uploads/image/profile.png",
-      video: "/uploads/video/portfolio.mp4",
-    },
-    {
       id: "6",
       title: "Sari-Sari Store Management System",
       description:
