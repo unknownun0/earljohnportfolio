@@ -92,6 +92,17 @@ export default function ProfessionalLayout() {
                     </div>
                   )}
                   {!p.video && p.image && <img src={p.image} alt={p.title} className="p-project-media" />}
+                  {!p.video && !p.image && p.link && (
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} style={{ textDecoration: "none", display: "block" }}>
+                      <div className="p-project-media" style={{ background: "var(--p-bg)", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 200, borderBottom: "1px solid var(--p-border)" }}>
+                        <div style={{ textAlign: "center", padding: 24 }}>
+                          <div style={{ fontSize: 32, fontWeight: 700, color: "var(--p-text)", marginBottom: 8, letterSpacing: -1 }}>{p.title}</div>
+                          <div style={{ fontSize: 12, color: "var(--p-text-secondary)", wordBreak: "break-all", opacity: 0.6 }}>{p.link.replace(/^https?:\/\//, "")}</div>
+                          <div style={{ marginTop: 16, display: "inline-block", padding: "8px 20px", border: "2px solid var(--p-text)", borderRadius: 6, fontSize: 12, fontWeight: 600, color: "var(--p-text)" }}>Visit Live Site</div>
+                        </div>
+                      </div>
+                    </a>
+                  )}
                   <div className="p-project-body">
                     <div className="p-project-title">
                       {p.title}
