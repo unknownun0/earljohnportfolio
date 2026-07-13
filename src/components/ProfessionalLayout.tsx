@@ -5,6 +5,7 @@ import { Moon, Sun, ExternalLink, Mail, Play } from "lucide-react";
 import { useContent } from "@/context/ContentContext";
 import { useTheme } from "@/context/ThemeContext";
 import ProjectModal from "./ProjectModal";
+import PortfolioChatbot from "./PortfolioChatbot";
 import type { Project } from "@/data/defaultContent";
 
 export default function ProfessionalLayout() {
@@ -193,6 +194,7 @@ export default function ProfessionalLayout() {
       </div>
 
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
+      <PortfolioChatbot />
     </div>
   );
 }
