@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Moon, Sun, ExternalLink, Mail, Play, Menu, X } from "lucide-react";
+import { Moon, Sun, ExternalLink, Mail, Play, Menu, X, Code2, MessageCircle, Globe, Link2, Camera } from "lucide-react";
 import { useContent } from "@/context/ContentContext";
 import { useTheme } from "@/context/ThemeContext";
 import ProjectModal from "./ProjectModal";
@@ -43,6 +43,18 @@ export default function ProfessionalLayout() {
     { id: "experience", label: "Experience" },
   ];
 
+  const socialIcon = (label: string) => {
+    const map: Record<string, React.ComponentType<{ className?: string }>> = {
+      GitHub: Code2,
+      Gmail: Mail,
+      WhatsApp: MessageCircle,
+      Facebook: Globe,
+      LinkedIn: Link2,
+      Instagram: Camera,
+    };
+    return map[label] || ExternalLink;
+  };
+
   return (
     <div className={`p-theme${theme === "dark" ? " dark" : ""}${sidebarOpen ? " p-sidebar-open" : ""}`} style={{ minHeight: "100vh" }}>
       <button className="p-hamburger" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Menu">
@@ -51,13 +63,25 @@ export default function ProfessionalLayout() {
       {sidebarOpen && <div className="p-overlay" onClick={() => setSidebarOpen(false)} />}
 
       <nav className="p-nav">
-        <a href="#" className="p-logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); setSidebarOpen(false); }}>
-          EJ<span>.</span>
-        </a>
+        <div className="p-logo">
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); setSidebarOpen(false); }}>
+            EJ<span>.</span>
+          </a>
+        </div>
         <div className="p-nav-links">
           {navLinks.map((l) => (
             <button key={l.id} className="p-nav-link" onClick={() => scrollTo(l.id)}>{l.label}</button>
           ))}
+        </div>
+        <div className="p-nav-socials">
+          {content.socials.map((s) => {
+            const Icon = socialIcon(s.label);
+            return (
+              <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="p-nav-social-link" title={s.label}>
+                <Icon className="w-4 h-4" />
+              </a>
+            );
+          })}
         </div>
         <div className="p-nav-bottom">
           <button onClick={toggleTheme} className="p-nav-btn" title="Toggle theme">
@@ -203,13 +227,6 @@ export default function ProfessionalLayout() {
 
         {/* Footer */}
         <footer className="p-footer">
-          <div className="p-footer-links">
-            {content.socials.map((s) => (
-              <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="p-footer-link" title={s.label}>
-                {s.label.charAt(0)}
-              </a>
-            ))}
-          </div>
           <div className="p-footer-text">&copy; {new Date().getFullYear()} {content.hero.name}. Built with Next.js.</div>
         </footer>
       </div>
