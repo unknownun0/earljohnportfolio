@@ -2369,23 +2369,43 @@ body {
 }
 
 .p-project-card {
-  border: 1px solid var(--p-border);
+  position: relative;
+  border: none;
   border-radius: 12px;
   overflow: hidden;
   background: var(--p-card);
   box-shadow: var(--p-shadow);
-  transition: border-color 0.2s;
   cursor: pointer;
+  z-index: 0;
 }
 
-.p-project-card:hover {
-  border-color: var(--p-accent);
-  animation: p-border-pulse 1s ease-in-out infinite;
+.p-project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg, var(--p-text), transparent 35%, transparent 65%, var(--p-text));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
 }
 
-@keyframes p-border-pulse {
-  0%, 100% { border-color: var(--p-accent); }
-  50% { border-color: var(--p-border); }
+.p-project-card:hover::before {
+  opacity: 1;
+  animation: p-border-spin 2s linear infinite;
+}
+
+@keyframes p-border-spin {
+  to { transform: rotate(360deg); }
 }
 
 .p-project-media {
@@ -2566,8 +2586,8 @@ body {
 .p-cert-card:last-child { border-bottom: none; }
 
 .p-cert-thumb {
-  width: 80px;
-  height: 54px;
+  width: 100px;
+  height: 68px;
   border-radius: 4px;
   border: 1px solid var(--p-border);
   overflow: hidden;
