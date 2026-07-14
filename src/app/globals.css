@@ -2227,20 +2227,18 @@ body {
   color: var(--p-text-secondary);
   text-decoration: none;
   letter-spacing: 0.3px;
-  transition: all 0.2s;
+  transition: color 0.2s;
   cursor: pointer;
   background: none;
-  border: 1px solid var(--p-border);
+  border: none;
   font-family: inherit;
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 6px 0;
   text-align: left;
   width: 100%;
 }
 
 .p-nav-link:hover {
   color: var(--p-text);
-  border-color: var(--p-accent);
 }
 
 .p-nav-btn {
