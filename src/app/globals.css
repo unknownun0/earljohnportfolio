@@ -2176,18 +2176,19 @@ body {
   --p-shadow: none;
 }
 
-/* ─── Sidebar ─── */
+/* ─── Top Nav ─── */
 .p-nav {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  width: 200px;
+  right: 0;
+  height: 64px;
   background: var(--p-bg);
-  border-right: 1px solid var(--p-border);
+  border-bottom: 1px solid var(--p-border);
   display: flex;
-  flex-direction: column;
-  padding: 32px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
   z-index: 1000;
   backdrop-filter: blur(12px);
   background: rgba(255,255,255,0.85);
@@ -2197,13 +2198,8 @@ body {
   background: rgba(15,23,42,0.85);
 }
 
-.p-logo {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
 .p-logo a {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--p-text);
   letter-spacing: -0.5px;
@@ -2214,33 +2210,32 @@ body {
   color: var(--p-accent);
 }
 
+.p-logo {
+  display: flex;
+  align-items: center;
+}
+
 .p-nav-links {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
+  align-items: center;
+  gap: 24px;
 }
 
 .p-nav-link {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--p-text-secondary);
   text-decoration: none;
   letter-spacing: 0.3px;
-  transition: all 0.2s;
+  transition: color 0.2s;
   cursor: pointer;
   background: none;
-  border: 1px solid var(--p-border);
+  border: none;
   font-family: inherit;
-  padding: 10px 12px;
-  border-radius: 6px;
-  text-align: left;
-  width: 100%;
 }
 
 .p-nav-link:hover {
-  color: var(--p-text);
-  border-color: var(--p-accent);
+  color: var(--p-accent);
 }
 
 .p-nav-btn {
@@ -2262,70 +2257,11 @@ body {
   color: var(--p-accent);
 }
 
-.p-nav-bottom {
-  display: flex;
-  justify-content: center;
-  padding-top: 16px;
-  border-top: 1px solid var(--p-border);
-  margin-top: auto;
-}
-
-.p-nav-socials {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding: 20px 0 16px;
-}
-
-.p-nav-social-link {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  border: 1px solid var(--p-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--p-text-secondary);
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.p-nav-social-link:hover {
-  border-color: var(--p-accent);
-  color: var(--p-accent);
-}
-
 .p-body {
-  margin-left: 200px;
+  padding-top: 64px;
   background: var(--p-bg);
   min-height: 100vh;
   transition: background 0.3s;
-}
-
-/* Hamburger for mobile */
-.p-hamburger {
-  display: none;
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 1001;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid var(--p-border);
-  background: var(--p-bg);
-  color: var(--p-text);
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
-
-.p-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 999;
 }
 
 .p-section {
@@ -2712,22 +2648,6 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .p-hamburger {
-    display: flex;
-  }
-  .p-nav {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-  .p-sidebar-open .p-nav {
-    transform: translateX(0);
-  }
-  .p-sidebar-open .p-overlay {
-    display: block;
-  }
-  .p-body {
-    margin-left: 0;
-  }
   .p-hero-title {
     font-size: 28px;
   }
@@ -2736,6 +2656,9 @@ body {
   }
   .p-section {
     padding: 48px 16px;
+  }
+  .p-nav {
+    padding: 0 16px;
   }
 }
 
@@ -2878,5 +2801,36 @@ body {
   justify-content: center;
   margin-top: -36px;
   z-index: 1;
+}
+
+/* ─── Floating Socials ─── */
+.p-float-socials {
+  position: fixed;
+  right: 24px;
+  bottom: 84px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 998;
+}
+
+.p-float-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--p-border);
+  background: var(--p-bg);
+  color: var(--p-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.p-float-social-link:hover {
+  border-color: var(--p-accent);
+  color: var(--p-accent);
+  transform: translateX(-2px);
 }
 .p-chat-scroll-btn:hover { color: var(--p-text); border-color: var(--p-text); }
