@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Moon, Sun, ExternalLink, Mail, Play } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Moon, Sun, ExternalLink, Mail, Play, Menu, X } from "lucide-react";
 import { useContent } from "@/context/ContentContext";
 import { useTheme } from "@/context/ThemeContext";
 import ProjectModal from "./ProjectModal";
@@ -12,6 +12,7 @@ export default function ProfessionalLayout() {
   const { content } = useContent();
   const { theme, toggleTheme } = useTheme();
   const [selected, setSelected] = useState<Project | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const linkedIn = content.socials.find((s) => s.label === "LinkedIn")?.href || "#";
   const email = content.contact.find((c) => c.label === "Email")?.value || "";
@@ -23,8 +24,18 @@ export default function ProfessionalLayout() {
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setSidebarOpen(false);
+    }
   };
+
+  // Close sidebar on resize past breakpoint
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 768) setSidebarOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   const navLinks = [
     { id: "projects", label: "Projects" },
@@ -33,15 +44,22 @@ export default function ProfessionalLayout() {
   ];
 
   return (
-    <div className={`p-theme${theme === "dark" ? " dark" : ""}`} style={{ minHeight: "100vh" }}>
+    <div className={`p-theme${theme === "dark" ? " dark" : ""}${sidebarOpen ? " p-sidebar-open" : ""}`} style={{ minHeight: "100vh" }}>
+      <button className="p-hamburger" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Menu">
+        {sidebarOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+      </button>
+      {sidebarOpen && <div className="p-overlay" onClick={() => setSidebarOpen(false)} />}
+
       <nav className="p-nav">
-        <a href="#" className="p-logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+        <a href="#" className="p-logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); setSidebarOpen(false); }}>
           EJ<span>.</span>
         </a>
         <div className="p-nav-links">
           {navLinks.map((l) => (
             <button key={l.id} className="p-nav-link" onClick={() => scrollTo(l.id)}>{l.label}</button>
           ))}
+        </div>
+        <div className="p-nav-bottom">
           <button onClick={toggleTheme} className="p-nav-btn" title="Toggle theme">
             {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
           </button>
