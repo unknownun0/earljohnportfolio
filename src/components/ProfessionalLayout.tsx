@@ -47,13 +47,17 @@ export default function ProfessionalLayout() {
   return (
     <div className={`p-theme${theme === "dark" ? " dark" : ""}`} style={{ minHeight: "100vh" }}>
       <nav className="p-nav">
-        <a href="#" className="p-logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-          EJ<span>.</span>
-        </a>
+        <div className="p-logo">
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+            EJ<span>.</span>
+          </a>
+        </div>
         <div className="p-nav-links">
           {navLinks.map((l) => (
             <button key={l.id} className="p-nav-link" onClick={() => scrollTo(l.id)}>{l.label}</button>
           ))}
+        </div>
+        <div className="p-nav-bottom">
           <button onClick={toggleTheme} className="p-nav-btn" title="Toggle theme">
             {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
           </button>
