@@ -56,6 +56,15 @@ export default function ProfessionalLayout() {
           {navLinks.map((l) => (
             <button key={l.id} className="p-nav-link" onClick={() => scrollTo(l.id)}>{l.label}</button>
           ))}
+          <div className="p-nav-socials-label">Social</div>
+          {content.socials.map((s) => {
+            const Icon = socialIcon(s.label);
+            return (
+              <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="p-nav-link p-nav-social-item">
+                <Icon className="w-3.5 h-3.5" /> {s.label}
+              </a>
+            );
+          })}
         </div>
         <div className="p-nav-bottom">
           <button onClick={toggleTheme} className="p-nav-btn" title="Toggle theme">
@@ -63,18 +72,6 @@ export default function ProfessionalLayout() {
           </button>
         </div>
       </nav>
-
-      {/* Floating socials */}
-      <div className="p-float-socials">
-        {content.socials.map((s) => {
-          const Icon = socialIcon(s.label);
-          return (
-            <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="p-float-social-link" title={s.label}>
-              <Icon className="w-4 h-4" />
-            </a>
-          );
-        })}
-      </div>
 
       <div className="p-body">
         {/* Hero */}
