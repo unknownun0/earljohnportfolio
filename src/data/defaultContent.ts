@@ -186,7 +186,7 @@ export const defaultContent: Content = {
       title: "SHR — Doctor Side",
       description:
         "Student Health Record (SHR) system — doctor-side interface built during internship at St. Dominic College of Asia. Manages student health records, consultations, and medical history.",
-      tags: ["PHP", "MySQL", "Bootstrap", "JavaScript"],
+      tags: ["CodeIgniter 3", "PHP", "MySQL (MariaDB)", "Bootstrap 5", "jQuery", "mPDF", "PHPMailer", "XAMPP"],
       featured: false,
       image: "",
       video: "",
