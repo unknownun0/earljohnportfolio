@@ -197,10 +197,8 @@ export default function ProfessionalLayout() {
                     <div className="p-cert-thumb">
                       {cert.image ? <img src={cert.image} alt={cert.title} /> : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>{cert.icon || "📜"}</div>}
                     </div>
-                    <div className="p-cert-info">
-                      <div className="p-cert-name">{cert.title}</div>
-                      <div className="p-cert-issuer">{cert.issuer}</div>
-                    </div>
+                    <div className="p-cert-name">{cert.title}</div>
+                    <div className="p-cert-issuer">{cert.issuer}</div>
                   </div>
                 ))}
               </div>
