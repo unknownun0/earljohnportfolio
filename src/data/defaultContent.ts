@@ -181,6 +181,17 @@ export const defaultContent: Content = {
       image: "/uploads/image/pos.png",
       video: "/uploads/video/sari%20sari.mp4",
     },
+    {
+      id: "8",
+      title: "SHR — Doctor Side",
+      description:
+        "Student Health Record (SHR) system — doctor-side interface built during internship at St. Dominic College of Asia. Manages student health records, consultations, and medical history.",
+      tags: ["PHP", "MySQL", "Bootstrap", "JavaScript"],
+      featured: false,
+      image: "",
+      video: "",
+      status: "Internship",
+    },
   ],
   experience: [
     {
