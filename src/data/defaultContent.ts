@@ -125,7 +125,7 @@ export const defaultContent: Content = {
       description: "A heritage park management and booking website. Currently under development.",
       tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Vercel"],
       featured: true,
-      image: "https://heritagepark.vercel.app/videos/HERITAGEPARK-ezgif.com-video-to-gif-converter.gif",
+      image: "/uploads/image/heritageparktaguig.jpg",
       video: "",
       status: "On Progress",
       link: "https://heritagepark.vercel.app/",
