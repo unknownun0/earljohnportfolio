@@ -2679,50 +2679,30 @@ body {
   }
 }
 
-/* Responsive sidebar */
+/* Keep sidebar on all screens - narrower on mobile */
 @media (max-width: 768px) {
   .p-nav {
-    width: 100%;
-    height: auto;
-    bottom: auto;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--p-border);
-  }
-  .p-logo {
-    margin-bottom: 0;
+    width: 160px;
+    padding: 24px 12px;
   }
   .p-logo a {
-    font-size: 16px;
-  }
-  .p-nav-links {
-    flex-direction: row;
-    flex: 1;
-    gap: 4px;
-    margin-left: 16px;
+    font-size: 18px;
   }
   .p-nav-link {
-    font-size: 11px;
-    padding: 6px 8px;
-    border: none;
-    width: auto;
+    font-size: 12px;
+    padding: 4px 0;
   }
-  .p-nav-socials-label,
   .p-nav-social-item {
-    display: none;
-  }
-  .p-nav-bottom {
-    border-top: none;
-    padding-top: 0;
+    font-size: 11px !important;
   }
   .p-body {
-    margin-left: 0;
-    padding-top: 60px;
+    margin-left: 160px;
+  }
+  .p-layout {
+    grid-template-columns: 1fr;
+    padding: 0 16px 40px;
   }
 }
-
 /* ─── Chatbot ─── */
 .p-chat-fab {
   position: fixed;
