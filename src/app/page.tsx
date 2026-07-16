@@ -1,7 +1,7 @@
 "use client";
 
-import ProfessionalLayout from "@/components/ProfessionalLayout";
+import GamingLayout from "@/components/GamingLayout";
 
 export default function Home() {
-  return <ProfessionalLayout />;
+  return <GamingLayout />;
 }
