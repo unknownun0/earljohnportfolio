@@ -545,13 +545,37 @@ export default function SciFiPortfolio() {
                 />
               </div>
 
+              {/* Featured Projects */}
+              <div className="sf-highlight-panel">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[9px] font-bold text-white/60 tracking-widest uppercase">Featured</span>
+                  <span className="text-[7px] text-white/30 font-mono">v1.0.0</span>
+                </div>
+                {content.projects.filter((p) => p.title === "Roma Tour" || p.title === "SHR — Doctor Side").map((project) => (
+                  <div key={project.id} className="mb-3 last:mb-0">
+                    <div className="text-[10px] text-white/50 mb-1 font-mono">
+                      {project.title}
+                    </div>
+                    <div className="flex gap-1 flex-wrap">
+                      {project.tags?.slice(0, 4).map((t) => (
+                        <span key={t} className="text-[7px] px-1.5 py-0.5 rounded border border-white/20 bg-white/5 text-white/50 font-mono">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    {project.image && (
+                      <div className="mt-1.5 rounded overflow-hidden border border-white/10">
+                        <img src={project.image} alt={project.title} className="w-full h-16 object-cover" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
 
             </div>
           </div>
         </div>
       </div>
-
-
 
       {/* Active state panels */}
       <AnimatePresence>
