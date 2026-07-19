@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useContent } from "@/context/ContentContext";
 import Background from "@/components/Background";
@@ -209,86 +209,6 @@ function ScanOverlay() {
         animate={{ top: ["-2%", "102%"] }}
         transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }}
       />
-    </div>
-  );
-}
-
-function PortfolioChatbotInline() {
-  const { content } = useContent();
-  const [messages, setMessages] = useState<{ role: string; text: string }[]>([
-    { role: "bot", text: "Hi! Ask me about his skills, projects, or experience." },
-  ]);
-  const [input, setInput] = useState("");
-  const listRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.scrollTop = listRef.current.scrollHeight;
-    }
-  }, [messages]);
-
-  const respond = useCallback((q: string): string => {
-    const lq = q.toLowerCase();
-    if (/^(hi|hello|hey)\b/.test(lq)) return "Hello! Ask me about his skills, projects, experience, or certifications.";
-    if (/\b(who|about|tell me about)\b.*\b(you|earl|john)\b/.test(lq) || /^(who|what) is/.test(lq))
-      return `${content.hero.name} is a BS Information Systems student at Dr. Filemon C. Aguilar Memorial College. Web Developer, Graphic Designer, and SMM.`;
-    if (/\b(skill|tech|tools|expertise|stack)\b/.test(lq)) {
-      return content.techStack.map((g) => `${g.category}: ${g.items.slice(0, 4).join(", ")}`).join("\n");
-    }
-    if (/\b(project|work|built|portfolio)\b/.test(lq))
-      return `He has ${content.projects.length} projects including ${content.projects.slice(0, 3).map((p) => p.title).join(", ")}.`;
-    if (/\b(experience|intern|job|work)\b/.test(lq))
-      return `Experience: ${content.experience.map((e) => `${e.title} @ ${e.organization}`).join(", ")}.`;
-    if (/\b(contact|email|reach|social|linkedin|facebook|instagram)\b/.test(lq))
-      return `Find him on: ${content.socials.map((s) => `${s.label} (${s.href})`).join(", ")}.`;
-    if (/\b(cert|certification|credential)\b/.test(lq))
-      return `Certifications: ${content.certifications.map((c) => c.title).join(", ")}.`;
-    return `I'm not sure about that. Try asking about skills, projects, experience, or contact info.`;
-  }, [content]);
-
-  const send = useCallback((text: string) => {
-    if (!text.trim()) return;
-    setMessages((prev) => [...prev, { role: "user", text: text.trim() }]);
-    setInput("");
-    setTimeout(() => {
-      const reply = respond(text.trim());
-      setMessages((prev) => [...prev, { role: "bot", text: reply }]);
-    }, 300);
-  }, [respond]);
-
-  const quickReplies = ["Who is he?", "Skills", "Projects", "Contact"];
-
-  return (
-    <div className="flex flex-col flex-1 min-h-0">
-      <div
-        ref={listRef}
-        className="space-y-1.5 mb-2 flex-1 overflow-y-auto scrollbar-thin min-h-0"
-      >
-        {messages.map((m, i) => (
-          <div key={i} className={`text-[12px] leading-relaxed ${m.role === "bot" ? "text-white/50" : "text-white/70 text-right"}`}>
-            {m.text}
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-wrap gap-1 mb-1.5">
-        {messages.length <= 1 && quickReplies.map((qr) => (
-          <button key={qr} onClick={() => send(qr)} className="text-[10px] px-2 py-1 rounded border border-white/15 text-white/40 hover:text-white/70 hover:border-white/30 transition-colors">
-            {qr}
-          </button>
-        ))}
-      </div>
-      <div className="flex gap-1.5">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && send(input)}
-          placeholder="Type a message..."
-          className="flex-1 bg-white/5 border border-white/10 rounded px-2 py-1 text-[12px] text-white/60 font-mono outline-none focus:border-white/30 placeholder-white/20"
-        />
-        <button onClick={() => send(input)} className="px-3 py-1.5 rounded border border-white/15 text-white/40 hover:text-white/70 hover:border-white/30 text-[12px] transition-colors">
-          SEND
-        </button>
-      </div>
     </div>
   );
 }
@@ -625,17 +545,7 @@ export default function SciFiPortfolio() {
                 />
               </div>
 
-              {/* Chatbot Panel */}
-              <div className="sf-chat-panel flex flex-col min-h-0">
-                <div className="flex items-center justify-between mb-2 shrink-0">
-                  <span className="text-[12px] font-bold text-white/50 tracking-widest uppercase">Assistant</span>
-                  <span className="text-[10px] text-white/20 font-mono">ONLINE</span>
-                </div>
-                <div className="text-[13px] text-white/40 mb-2 leading-relaxed shrink-0">
-                  Ask me anything about my portfolio, skills, or projects.
-                </div>
-                <PortfolioChatbotInline />
-              </div>
+
             </div>
           </div>
         </div>
