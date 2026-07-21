@@ -152,7 +152,7 @@ function Clock() {
     return () => clearInterval(id);
   }, []);
 
-  return <span className="text-[10px] text-white/50 font-mono">{time}</span>;
+  return <span className="text-[13px] text-white/50 font-mono">{time}</span>;
 }
 
 interface GlowButtonProps {
@@ -177,11 +177,11 @@ function GlowButton({ label, sublabel, active, onClick }: GlowButtonProps) {
             : "border-white/10 bg-white/[0.02] hover:border-white/40"
         }`}
       >
-        <span className="text-[8px] font-bold text-white/80 leading-tight text-center">
+        <span className="text-[11px] font-bold text-white/80 leading-tight text-center">
           {label}
         </span>
         {sublabel && (
-          <span className="text-[7px] text-white/40">{sublabel}</span>
+          <span className="text-[10px] text-white/40">{sublabel}</span>
         )}
       </div>
       {active && (
@@ -247,7 +247,7 @@ function LoadingScreen() {
         />
       </div>
 
-      <div className="flex items-center gap-1 text-sm font-bold text-white/70 tracking-[0.3em] uppercase font-mono">
+      <div className="flex items-center gap-1 text-[17px] font-bold text-white/70 tracking-[0.3em] uppercase font-mono">
         {"LOADING".split("").map((ch, i) => (
           <motion.span
             key={i}
@@ -280,7 +280,7 @@ function LoadingScreen() {
       />
 
       <motion.div
-        className="mt-8 text-[8px] text-white/20 font-mono tracking-widest"
+        className="mt-8 text-[11px] text-white/20 font-mono tracking-widest"
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
@@ -355,24 +355,24 @@ export default function SciFiPortfolio() {
               <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.5)] animate-pulse" />
             </div>
             <div>
-              <div className="text-xs font-bold text-white/80 tracking-widest uppercase leading-tight">
+              <div className="text-[15px] font-bold text-white/80 tracking-widest uppercase leading-tight">
                 {content.hero.name}
               </div>
-              <div className="text-[9px] text-white/40 tracking-[0.2em] uppercase">
+              <div className="text-[12px] text-white/40 tracking-[0.2em] uppercase">
                 Website Portfolio
               </div>
             </div>
           </div>
         </div>
         <div className="sf-topbar-center">
-          <div className="flex items-center gap-4 text-[9px] text-white/40 font-mono">
+          <div className="flex items-center gap-4 text-[12px] text-white/40 font-mono">
             <span>SYS::ONLINE</span>
             <span className="w-1 h-1 rounded-full bg-white shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
             <span>NODE: v20.12</span>
           </div>
         </div>
         <div className="sf-topbar-right">
-          <div className="flex items-center gap-3 text-[9px] text-white/40 font-mono">
+          <div className="flex items-center gap-3 text-[12px] text-white/40 font-mono">
             <Clock />
             <span className="text-white/40">{currentTime} UTC+8</span>
           </div>
@@ -397,7 +397,7 @@ export default function SciFiPortfolio() {
                   )}
                   <ScanOverlay />
                 </div>
-                <div className="mt-2 flex items-center gap-2 text-[8px] text-white/30 font-mono">
+                <div className="mt-2 flex items-center gap-2 text-[11px] text-white/30 font-mono">
                   <span className="text-white/60">●</span> BIO-SIGNATURE ACTIVE
                   <span className="ml-auto">ID: {content.hero.name.substring(0, 3).toUpperCase()}-{Math.floor(Math.random() * 9999)}</span>
                 </div>
@@ -415,7 +415,7 @@ export default function SciFiPortfolio() {
                 </div>
                 <div className="sf-info-field">
                   <span className="sf-info-label">CONTACT</span>
-                  <div className="sf-info-value text-[10px] space-y-1">
+                  <div className="sf-info-value text-[13px] space-y-1">
                     {content.socials.map((s) => (
                       <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 hover:text-white/90 transition-colors">
                         <span className="w-1 h-1 rounded-full bg-white/40 shrink-0" />
@@ -472,30 +472,30 @@ export default function SciFiPortfolio() {
             <div className="sf-right-panel">
               {/* Metrics */}
               <div className="sf-metrics">
-                <div className="text-[9px] text-white/35 font-mono tracking-widest mb-3 uppercase">System Metrics</div>
+                <div className="text-[12px] text-white/35 font-mono tracking-widest mb-3 uppercase">System Metrics</div>
                 <div className="space-y-2.5">
                   <div className="sf-metric-row">
                     <span className="sf-metric-label">PROJECTS COMPLETE</span>
                     <span className="sf-metric-value">
-                      <span className="text-white/80 text-[10px] font-bold tabular-nums">{String(countedProjects).padStart(2, "0")}</span>
+                      <span className="text-white/80 text-[13px] font-bold tabular-nums">{String(countedProjects).padStart(2, "0")}</span>
                     </span>
                   </div>
                   <div className="sf-metric-row">
                     <span className="sf-metric-label">LINES OF CODE</span>
                     <span className="sf-metric-value">
-                      <span className="text-white/80 text-[10px] font-bold tabular-nums">{formatNumber(locCount)}</span>
+                      <span className="text-white/80 text-[13px] font-bold tabular-nums">{formatNumber(locCount)}</span>
                     </span>
                   </div>
                   <div className="sf-metric-row">
                     <span className="sf-metric-label">TECH STACK</span>
                     <span className="sf-metric-value">
-                      <span className="text-white/80 text-[10px] font-bold tabular-nums">{countedSkills}</span>
+                      <span className="text-white/80 text-[13px] font-bold tabular-nums">{countedSkills}</span>
                     </span>
                   </div>
                   <div className="sf-metric-row">
                     <span className="sf-metric-label">EXPERIENCE</span>
                     <span className="sf-metric-value">
-                      <span className="text-white/80 text-[10px] font-bold tabular-nums">{countedExp}</span>
+                      <span className="text-white/80 text-[13px] font-bold tabular-nums">{countedExp}</span>
                     </span>
                   </div>
 
@@ -505,18 +505,18 @@ export default function SciFiPortfolio() {
               {/* Highlight Panel - RECENT WORK */}
               <div className="sf-highlight-panel">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[9px] font-bold text-white/60 tracking-widest uppercase">Latest Launch</span>
-                  <span className="text-[7px] text-white/30 font-mono">v2.4.1</span>
+                  <span className="text-[12px] font-bold text-white/60 tracking-widest uppercase">Latest Launch</span>
+                  <span className="text-[10px] text-white/30 font-mono">v2.4.1</span>
                 </div>
-                <div className="text-base font-black text-white tracking-tight leading-tight mb-1">
+                <div className="text-[19px] font-black text-white tracking-tight leading-tight mb-1">
                   RECENT WORK
                 </div>
-                <div className="text-[10px] text-white/50 mb-2 font-mono">
+                <div className="text-[13px] text-white/50 mb-2 font-mono">
                   {content.projects[0]?.title || "No projects available"}
                 </div>
                 <div className="flex gap-1 flex-wrap">
                   {content.projects[0]?.tags?.slice(0, 4).map((t) => (
-                    <span key={t} className="text-[7px] px-1.5 py-0.5 rounded border border-white/20 bg-white/5 text-white/50 font-mono">
+                    <span key={t} className="text-[10px] px-1.5 py-0.5 rounded border border-white/20 bg-white/5 text-white/50 font-mono">
                       {t}
                     </span>
                   ))}
@@ -528,12 +528,12 @@ export default function SciFiPortfolio() {
                 )}
                 <div className="mt-2 flex gap-2">
                   {github && (
-                    <a href={github} target="_blank" rel="noopener noreferrer" className="sf-panel-btn text-[9px]">
+                    <a href={github} target="_blank" rel="noopener noreferrer" className="sf-panel-btn text-[12px]">
                       VIEW SOURCE
                     </a>
                   )}
                   {email && (
-                    <a href={`mailto:${email}`} className="sf-panel-btn text-[9px]">
+                    <a href={`mailto:${email}`} className="sf-panel-btn text-[12px]">
                       CONTACT
                     </a>
                   )}
@@ -548,17 +548,17 @@ export default function SciFiPortfolio() {
               {/* Featured Projects */}
               <div className="sf-highlight-panel">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[9px] font-bold text-white/60 tracking-widest uppercase">Featured</span>
-                  <span className="text-[7px] text-white/30 font-mono">v1.0.0</span>
+                  <span className="text-[12px] font-bold text-white/60 tracking-widest uppercase">Featured</span>
+                  <span className="text-[10px] text-white/30 font-mono">v1.0.0</span>
                 </div>
                 {content.projects.filter((p) => p.title === "Roma Tour" || p.title === "SHR — Doctor Side").map((project) => (
                   <div key={project.id} className="mb-3 last:mb-0">
-                    <div className="text-[10px] text-white/50 mb-1 font-mono">
+                    <div className="text-[13px] text-white/50 mb-1 font-mono">
                       {project.title}
                     </div>
                     <div className="flex gap-1 flex-wrap">
                       {project.tags?.slice(0, 4).map((t) => (
-                        <span key={t} className="text-[7px] px-1.5 py-0.5 rounded border border-white/20 bg-white/5 text-white/50 font-mono">
+                        <span key={t} className="text-[10px] px-1.5 py-0.5 rounded border border-white/20 bg-white/5 text-white/50 font-mono">
                           {t}
                         </span>
                       ))}
@@ -599,15 +599,15 @@ export default function SciFiPortfolio() {
             >
               <button
                 onClick={() => setActiveBtn(null)}
-                className="absolute top-3 right-3 text-white/40 hover:text-white/70 text-sm"
+                className="absolute top-3 right-3 text-white/40 hover:text-white/70 text-[17px]"
               >
                 ✕
               </button>
               {activeBtn === "projects" && (
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <h3 className="text-sm font-bold text-white/70 tracking-widest uppercase">Project Database</h3>
-                    <span className="text-[9px] text-white/35 font-mono">{content.projects.length} records</span>
+                    <h3 className="text-[17px] font-bold text-white/70 tracking-widest uppercase">Project Database</h3>
+                    <span className="text-[12px] text-white/35 font-mono">{content.projects.length} records</span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {content.projects.map((p, i) => (
@@ -636,7 +636,7 @@ export default function SciFiPortfolio() {
                               p.image && <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             )}
                             {p.status && (
-                              <span className="absolute top-2 left-2 text-[8px] font-bold px-1.5 py-0.5 rounded border border-white/30 bg-white/10 text-white/70">
+                              <span className="absolute top-2 left-2 text-[11px] font-bold px-1.5 py-0.5 rounded border border-white/30 bg-white/10 text-white/70">
                                 {p.status}
                               </span>
                             )}
@@ -646,26 +646,26 @@ export default function SciFiPortfolio() {
                         <div className="p-3">
                           <div className="flex items-start justify-between gap-2">
                             <div>
-                              <div className="text-xs font-semibold text-white/70 group-hover:text-white/90 transition-colors">
+                              <div className="text-[15px] font-semibold text-white/70 group-hover:text-white/90 transition-colors">
                                 {p.title}
                               </div>
-                              <div className="text-[9px] text-white/30 font-mono mt-0.5">
+                              <div className="text-[12px] text-white/30 font-mono mt-0.5">
                                 {String(i + 1).padStart(2, "0")} · {p.tags?.slice(0, 2).join(", ")}
                               </div>
                             </div>
                             {p.link && (
-                              <a href={p.link} target="_blank" rel="noopener noreferrer" className="shrink-0 text-[9px] px-2 py-1 rounded border border-white/15 text-white/40 hover:text-white/70 hover:border-white/40 transition-colors">
+                              <a href={p.link} target="_blank" rel="noopener noreferrer" className="shrink-0 text-[12px] px-2 py-1 rounded border border-white/15 text-white/40 hover:text-white/70 hover:border-white/40 transition-colors">
                                 OPEN
                               </a>
                             )}
                           </div>
-                          <div className="text-[9px] text-white/35 mt-1.5 line-clamp-2 leading-relaxed">
+                          <div className="text-[12px] text-white/35 mt-1.5 line-clamp-2 leading-relaxed">
                             {p.description}
                           </div>
                           {p.tags && p.tags.length > 0 && (
                             <div className="flex flex-wrap gap-1 mt-2">
                               {p.tags.map((t) => (
-                                <span key={t} className="text-[7px] px-1.5 py-0.5 rounded border border-white/5 text-white/30">
+                                <span key={t} className="text-[10px] px-1.5 py-0.5 rounded border border-white/5 text-white/30">
                                   {t}
                                 </span>
                               ))}
@@ -679,18 +679,18 @@ export default function SciFiPortfolio() {
               )}
               {activeBtn === "skills" && (
                 <div>
-                  <h3 className="text-sm font-bold text-white/70 tracking-widest uppercase mb-4">Skill Matrix</h3>
+                  <h3 className="text-[17px] font-bold text-white/70 tracking-widest uppercase mb-4">Skill Matrix</h3>
                   <div className="space-y-3">
                     {content.techStack.map((group) => (
                       <div key={group.id}>
-                        <div className="text-[9px] text-white/40 tracking-widest mb-1.5 uppercase">{group.category}</div>
+                        <div className="text-[12px] text-white/40 tracking-widest mb-1.5 uppercase">{group.category}</div>
                         <div className="flex flex-wrap gap-1.5">
                           {group.items.map((item) => {
                             const level = content.skillLevels?.[item] ?? 0;
                             return (
-                              <div key={item} className="px-2 py-1 rounded border border-white/5 bg-white/[0.02] text-[9px] text-white/60">
+                              <div key={item} className="px-2 py-1 rounded border border-white/5 bg-white/[0.02] text-[12px] text-white/60">
                                 {item}
-                                <span className="ml-1 text-[8px] text-white/30">{level}%</span>
+                                <span className="ml-1 text-[11px] text-white/30">{level}%</span>
                               </div>
                             );
                           })}
@@ -702,7 +702,7 @@ export default function SciFiPortfolio() {
               )}
               {activeBtn === "cases" && (
                 <div>
-                  <h3 className="text-sm font-bold text-white/70 tracking-widest uppercase mb-4">Case Files</h3>
+                  <h3 className="text-[17px] font-bold text-white/70 tracking-widest uppercase mb-4">Case Files</h3>
                   <div className="space-y-2">
                     {content.experience.map((exp, i) => (
                       <motion.div
@@ -713,12 +713,12 @@ export default function SciFiPortfolio() {
                         className="py-2 px-3 rounded border border-white/5 hover:border-white/20 bg-white/[0.02] transition-colors"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-[11px] text-white/70">{exp.title}</span>
-                          <span className="text-[8px] text-white/40 px-1.5 py-0.5 rounded border border-white/20">
+                          <span className="text-[14px] text-white/70">{exp.title}</span>
+                          <span className="text-[11px] text-white/40 px-1.5 py-0.5 rounded border border-white/20">
                             {exp.type}
                           </span>
                         </div>
-                        <div className="text-[9px] text-white/35 mt-0.5">{exp.organization}</div>
+                        <div className="text-[12px] text-white/35 mt-0.5">{exp.organization}</div>
                       </motion.div>
                     ))}
                   </div>
