@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
-import "./globals.css";
 import { ContentProvider } from "@/context/ContentContext";
 import { ThemeProvider } from "@/context/ThemeContext";
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
-});
 
 export const metadata: Metadata = {
   title: "Earl John Gomez | Portfolio",
@@ -36,13 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jetbrainsMono.variable} h-full antialiased dark`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col">
-        <div className="relative z-10 flex flex-col min-h-full">
-          <ThemeProvider>
-            <ContentProvider>{children}</ContentProvider>
-          </ThemeProvider>
-        </div>
+    <html lang="en">
+      <body>
+        <ThemeProvider>
+          <ContentProvider>{children}</ContentProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
