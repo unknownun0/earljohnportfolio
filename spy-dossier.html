@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Classified Profile — Earl John Gomez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --panel: #4a7a72;
+    --panel-dark: #3c655e;
+    --panel-darker: #33534d;
+    --cream: #f2ead9;
+    --cream-dim: rgba(242, 234, 217, 0.65);
+    --ink: #0d1f1a;
+    --border: rgba(255, 255, 255, 0.16);
+    --glow: rgba(125, 228, 210, 0.45);
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(74, 122, 114, 0.16), transparent 45%),
+      radial-gradient(ellipse at 80% 100%, rgba(74, 122, 114, 0.12), transparent 45%);
+    color: var(--cream);
+    line-height: 1.55;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Scanline / grain texture overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 3px);
+    mix-blend-mode: overlay;
+  }
+
+  .mono-caps {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ============ NAV BAR ============ */
+  .topnav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 12px 22px;
+  }
+  .logo {
+    width: 38px; height: 38px;
+    display: grid; place-items: center;
+    background: var(--panel);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.25);
+    cursor: pointer;
+  }
+  .nav-pill {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    color: var(--cream);
+    font-size: 12px;
+    text-decoration: none;
+    transition: border-color .2s, color .2s, box-shadow .2s;
+  }
+  .nav-pill:hover {
+    border-color: var(--glow);
+    color: #fff;
+    box-shadow: 0 0 14px var(--glow);
+  }
+  .nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 228, 210, 0.5);
+    color: var(--cream);
+    font-size: 11px;
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #6fe8c8;
+    box-shadow: 0 0 8px #6fe8c8;
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  .nav-link {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color .2s, color .2s;
+  }
+  .nav-link:hover { color: #fff; border-color: var(--glow); }
+  .btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: var(--panel);
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .25s, filter .25s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+    box-shadow: 0 8px 22px var(--glow);
+  }
+
+  /* ============ LAYOUT SHELL ============ */
+  .shell {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 96px 22px 40px;
+  }
+
+  .fade { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .fade.visible { opacity: 1; transform: translateY(0); }
+
+  /* ============ DOSSIER PANEL ============ */
+  .dossier {
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 0 0 9999px rgba(74,122,114,0) ; /* placeholder no-op */
+  }
+  .dossier-wrap {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2px;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  }
+  .dossier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr 1.6fr 1fr;
+    gap: 18px;
+  }
+  .col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+  .field-label {
+    display: inline-block;
+    background: rgba(0,0,0,0.32);
+    color: var(--cream);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  /* Placeholder image block */
+  .ph {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: var(--panel-darker);
+    color: var(--cream-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px;
+  }
+  .ph.small { aspect-ratio: 16 / 10; }
+  .ph.avatar { aspect-ratio: 1; }
+
+  /* Content block card inside dossier */
+  .block {
+    background: rgba(0,0,0,0.10);
+    border-radius: var(--radius);
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: transform .2s, box-shadow .25s, border-color .25s;
+  }
+  .block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35), 0 0 0 1px var(--glow);
+  }
+
+  /* Contact info rows */
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 7px 2px;
+    border-bottom: 1px dashed rgba(255,255,255,0.18);
+    font-size: 11.5px;
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-label { font-weight: 700; }
+  .contact-value { opacity: 0.9; word-break: break-word; text-align: right; }
+
+  /* Identity / name */
+  .identity-name { font-size: 26px; font-weight: 800; letter-spacing: 0.02em; }
+  .identity-sub { color: rgba(13,31,26,0.75); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .identity-values {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 12.5px;
+  }
+  .identity-values p { color: rgba(13,31,26,0.88); }
+  .identity-key { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; display: block; }
+  .identity-quote { font-style: italic; opacity: 0.9; }
+
+  .taglist { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: rgba(0,0,0,0.24);
+    color: var(--cream);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+
+  /* Repeatable cert / project rows */
+  .entry {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: rgba(0,0,0,0.08);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: transform .2s, border-color .25s, box-shadow .25s;
+  }
+  .entry:hover {
+    transform: translateY(-2px);
+    border-color: var(--glow);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  .entry-ph {
+    width: 74px;
+    flex: 0 0 74px;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: var(--panel-darker);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--cream-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 4px;
+  }
+  .entry-body { flex: 1; min-width: 0; }
+  .entry-title { font-size: 12.5px; font-weight: 700; }
+  .entry-sub { font-size: 10.5px; opacity: 0.75; margin: 2px 0 8px; }
+
+  /* Education entries */
+  .edu {
+    background: rgba(0,0,0,0.10);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .edu-school { font-size: 13px; font-weight: 700; }
+  .edu-years { display: inline-block; margin-top: 4px; font-size: 10px; letter-spacing: 0.08em; background: rgba(0,0,0,0.24); color: var(--cream); padding: 2px 8px; border-radius: 3px; }
+  .edu-program { font-size: 11px; margin-top: 6px; opacity: 0.85; }
+
+  /* ============ SKILLS STRIP ============ */
+  .skills-strip {
+    margin-top: 26px;
+    display: flex;
+    gap: 14px;
+  }
+  .skill-card {
+    flex: 1 1 0;
+    min-width: 0;
+    background: var(--panel);
+    color: var(--ink);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 14px;
+    transition: transform .2s, box-shadow .25s;
+  }
+  .skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.4), 0 0 0 1px var(--glow);
+  }
+  .skill-cat {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.24);
+    color: var(--cream);
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+  .skill-tags { display: flex; flex-direction: column; gap: 5px; }
+  .skill-tag { font-size: 10.5px; opacity: 0.9; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    max-width: 1500px;
+    margin: 40px auto 0;
+    border-top: 1px solid var(--border);
+    padding: 20px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--cream-dim);
+  }
+  .footer b { color: var(--cream); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1160px) {
+    .dossier-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 1100px) {
+    .skills-strip { overflow-x: auto; padding-bottom: 8px; }
+    .skill-card { flex: 0 0 260px; }
+  }
+  @media (max-width: 680px) {
+    .shell { padding-top: 130px; padding-left: 12px; padding-right: 12px; }
+    .dossier-grid { grid-template-columns: 1fr; }
+    .skills-strip { flex-direction: column; }
+    .skill-card { flex: 1 1 auto; }
+    .nav-right { margin-left: 0; width: 100%; justify-content: space-between; }
+    .identity-name { font-size: 22px; }
+    .footer { justify-content: center; text-align: center; }
+  }
+
+  /* ============ MOBILE TAB LAYOUT (max-width: 480px) ============ */
+  .mobile-content, .mobile-tabs { display: none; }
+
+  @media (max-width: 480px) {
+    /* Condensed top bar: hide center pill + education link, keep logo + badge + resume */
+    .topnav-inner { padding: 10px 14px; gap: 10px; flex-wrap: nowrap; }
+    .nav-pill, .nav-link { display: none; }
+    .nav-right { margin-left: auto; width: auto; justify-content: flex-end; gap: 8px; flex-wrap: nowrap; }
+    .status-badge { padding: 4px 9px; font-size: 9px; gap: 5px; }
+    .btn { padding: 6px 11px; font-size: 10px; }
+
+    /* Hide desktop dossier + skills strip + footer */
+    .shell, .footer { display: none; }
+
+    /* Show one mobile tab section at a time */
+    .mobile-content { display: block; padding: 88px 14px 120px; }
+    .mobile-section { display: none; }
+    .mobile-section.active {
+      display: block;
+      animation: tabFade 0.18s ease;
+    }
+    @keyframes tabFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-section .block { margin-bottom: 14px; }
+    .mobile-section .field-label { margin-top: 12px; }
+    .mobile-section > .field-label:first-child { margin-top: 0; }
+    .stack { display: flex; flex-direction: column; gap: 12px; }
+
+    /* Stacked full-width cards */
+    .entry { flex-direction: column; }
+    .entry-ph { width: 100%; flex: none; aspect-ratio: 16 / 9; }
+    .skill-card { flex: 1 1 auto; }
+
+    /* Fixed bottom pill tab bar */
+    .mobile-tabs {
+      display: flex;
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
+      max-width: 420px;
+      z-index: 200;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px;
+      gap: 4px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 0;
+      border: none;
+      background: transparent;
+      color: var(--cream-dim);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 700;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ NAV BAR ============ -->
+  <header class="topnav" id="nav">
+    <div class="topnav-inner">
+      <div class="logo" id="logo"></div>
+      <a class="nav-pill" href="#dossier">My Portfolio</a>
+      <div class="nav-right">
+        <span class="status-badge mono-caps"><span class="status-dot"></span>Active for Work</span>
+        <a class="nav-link" href="#education">Education Background</a>
+        <button class="btn" id="resumeBtn">Resume Download</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MAIN SHELL ============ -->
+  <main class="shell">
+
+    <!-- DOSSIER PANEL -->
+    <div class="fade" id="dossier">
+      <div class="dossier-wrap">
+        <div class="dossier-grid">
+
+          <!-- LEFT COLUMN -->
+          <div class="col">
+            <div class="field-label">Profile</div>
+            <div class="ph avatar">Image Profile</div>
+            <div class="block">
+              <div class="field-label">Contact Information</div>
+              <div id="contactList"></div>
+            </div>
+          </div>
+
+          <!-- CENTER COLUMN -->
+          <div class="col">
+            <div class="block">
+              <div class="field-label">Name</div>
+              <div class="identity-name" id="name"></div>
+              <div class="identity-sub" id="role"></div>
+            </div>
+            <div class="block">
+              <div class="field-label">Birthday</div>
+              <div class="identity-values">
+                <div><span class="identity-key" style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.6">Date</span> <span id="birthday"></span></div>
+              </div>
+            </div>
+            <div class="block">
+              <div class="field-label">Personal Quote</div>
+              <div class="quote" id="quote"></div>
+            </div>
+            <div class="block">
+              <div class="field-label">Biography</div>
+              <div class="identity-values" id="bio"></div>
+            </div>
+            <div class="block">
+              <div class="field-label">Interests</div>
+              <div class="taglist" id="interests"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT-CENTER COLUMN -->
+          <div class="col">
+            <div class="field-label">Certification</div>
+            <div id="certList" style="display:flex;flex-direction:column;gap:12px;"></div>
+
+            <div class="field-label">Skill Levels</div>
+            <div class="field-label" style="margin-top:6px;">Project</div>
+            <div id="projectList" style="display:flex;flex-direction:column;gap:12px;"></div>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="col">
+            <div class="field-label">Education</div>
+            <div id="eduList" style="display:flex;flex-direction:column;gap:14px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS STRIP -->
+    <section class="fade skills-strip" id="skills"></section>
+
+  </main>
+
+  <!-- ============ MOBILE TAB CONTENT (only shown below 480px) ============ -->
+  <div class="mobile-content">
+    <!-- HOME TAB -->
+    <section class="mobile-section active" data-tab="home">
+      <div class="ph avatar">Image Profile</div>
+      <div class="block">
+        <div class="field-label">Contact Information</div>
+        <div id="mContact"></div>
+      </div>
+      <div class="block">
+        <div class="field-label">Name</div>
+        <div class="identity-name" id="mName"></div>
+        <div class="identity-sub" id="mRole"></div>
+      </div>
+      <div class="block">
+        <div class="field-label">Birthday</div>
+        <div class="identity-values"><div><span class="identity-key">Date</span> <span id="mBirthday"></span></div></div>
+      </div>
+      <div class="block">
+        <div class="field-label">Personal Quote</div>
+        <div class="identity-quote" id="mQuote"></div>
+      </div>
+      <div class="block">
+        <div class="field-label">Biography</div>
+        <div class="identity-values" id="mBio"></div>
+      </div>
+      <div class="block">
+        <div class="field-label">Interests</div>
+        <div class="taglist" id="mInterests"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT TAB -->
+    <section class="mobile-section" data-tab="about">
+      <div class="field-label">Certification</div>
+      <div id="mCerts" class="stack"></div>
+      <div class="field-label">Education</div>
+      <div id="mEdu" class="stack"></div>
+    </section>
+
+    <!-- PROJECT TAB -->
+    <section class="mobile-section" data-tab="project">
+      <div class="field-label">Project</div>
+      <div id="mProjects" class="stack"></div>
+    </section>
+
+    <!-- SKILLS TAB -->
+    <section class="mobile-section" data-tab="skills">
+      <div class="field-label">Skills</div>
+      <div id="mSkills" class="stack"></div>
+    </section>
+  </div>
+
+  <!-- ============ MOBILE BOTTOM NAV ============ -->
+  <nav class="mobile-tabs">
+    <button class="tab-btn active" data-tab="home">Home</button>
+    <button class="tab-btn" data-tab="about">About</button>
+    <button class="tab-btn" data-tab="project">Project</button>
+    <button class="tab-btn" data-tab="skills">Skills</button>
+  </nav>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div id="footLeft">Portfolio still in progress</div>
+    <div id="footCenter"></div>
+    <div id="footRight">Happy to work on your future project</div>
+  </footer>
+
+<script>
+  /* ============================================================
+     CONTENT DATA — edit your real info here, without touching layout
+     ============================================================ */
+  const data = {
+    name: "Earl John Gomez",
+    role: "Web Developer | Graphic Designer | Software Engineer",
+    logo: "EJ",
+    birthday: "00 / 00 / 2000", // EDIT: your real birthday
+    quote: "The future belongs to those who believe in the beauty of their dreams.",
+    bio: [
+      "I am a Bachelor of Science in Information Systems (BSIS) student with strong skills in web development, graphic design, and social media management. I have hands-on experience creating digital solutions, managing online content, and designing promotional materials that enhance brand engagement.",
+      "Proficient in HTML, CSS, JavaScript, PHP, and basic AI integration, I enjoy combining creativity and technology to solve problems and deliver user-friendly solutions."
+    ],
+    interests: ["Web Development", "Graphic Design", "Artificial Intelligence", "Social Media Management", "Technology"],
+    contact: [
+      { label: "GitHub",  value: "unknownun0" },
+      { label: "Gmail",   value: "earljohngomez66@gmail.com" },
+      { label: "WhatsApp",value: "+63 962 423 8760" },
+      { label: "Facebook",value: "itsm3earljohn" }
+    ],
+    certifications: [
+      { title: "Responsive Web Design", issuer: "FreeCodeCamp", placeholder: "CERT 01" },
+      { title: "JavaScript Algorithms & Data Structures", issuer: "FreeCodeCamp", placeholder: "CERT 02" },
+      { title: "Python Programming", issuer: "FreeCodeCamp", placeholder: "CERT 03" }
+    ],
+    projects: [
+      { title: "HeritagePark.com", sub: "Next.js · Supabase · Tailwind", placeholder: "PROJ 01" },
+      { title: "PhotoCabin", sub: "CodeIgniter 3 · PHP · MySQL", placeholder: "PROJ 02" },
+      { title: "Online Grading Management System", sub: "PHP · MySQL · Bootstrap", placeholder: "PROJ 03" },
+      { title: "Roma Tour", sub: "PHP · MySQL · JavaScript", placeholder: "PROJ 04" },
+      { title: "Memorial & Home Services", sub: "Next.js · React · Tailwind", placeholder: "PROJ 05" }
+    ],
+    education: [
+      { school: "Dr. Filemon C. Aguilar Memorial College", years: "2022 – Present", program: "Bachelor of Science in Information Systems" },
+      { school: "Zarate College", years: "2020 – 2022", program: "ICT Strand" },
+      { school: "Captain Albert Aguilar National High School", years: "2016 – 2020", program: "Secondary Education" }
+    ],
+    skills: [
+      { category: "Frontend", items: ["JavaScript (92)", "TypeScript (85)", "React (88)", "Next.js (85)", "Tailwind CSS (90)", "SCSS (78)"] },
+      { category: "DevOps & Cloud", items: ["AWS (62)", "GitHub Actions (75)", "GitLab CI (55)", "CloudFormation (40)"] },
+      { category: "Backend", items: ["Node.js (82)", "Python (78)", "PHP (88)", "Laravel (65)", "MySQL (85)"] },
+      { category: "AI & Machine Learning", items: ["TensorFlow (40)", "PyTorch (35)", "LangChain (45)", "OpenAI (58)"] },
+      { category: "Security & Identity", items: ["AWS IAM (45)", "Auth0 (50)"] },
+      { category: "Developer Tools", items: ["Git (90)", "GitHub (92)", "VS Code (95)", "JetBrains (60)", "Discord (70)"] },
+      { category: "CMS & No-Code", items: ["WordPress (82)", "Strapi (60)", "Webflow (55)", "Bubble (50)"] }
+    ],
+    footer: {
+      left: "Portfolio still in progress",
+      developer: "Developer: Earl John Gomez",
+      year: "2026",
+      right: "Happy to work on your future project"
+    }
+  };
+
+  /* ============================================================
+     RENDER
+     ============================================================ */
+  const el = (id) => document.getElementById(id);
+
+  el("logo").textContent = data.logo;
+  el("name").textContent = data.name;
+  el("role").textContent = data.role;
+  el("birthday").textContent = data.birthday;
+  el("quote").textContent = "\u201C" + data.quote + "\u201D";
+
+  // Bio paragraphs
+  el("bio").innerHTML = data.bio.map((p) => `<p>${p}</p>`).join("");
+
+  // Interests tags
+  el("interests").innerHTML = data.interests.map((i) => `<span class="tag">${i}</span>`).join("");
+
+  // Contact rows
+  el("contactList").innerHTML = data.contact.map((c) =>
+    `<div class="contact-row"><span class="contact-label">${c.label}</span><span class="contact-value">${c.value}</span></div>`
+  ).join("");
+
+  // Certifications
+  el("certList").innerHTML = data.certifications.map((c, i) => `
+    <div class="entry">
+      <div class="entry-ph">${c.placeholder}</div>
+      <div class="entry-body">
+        <div class="entry-title">${c.title}</div>
+        <div class="entry-sub">${c.issuer}</div>
+        <button class="btn" onclick="alert('${c.issuer} — ${c.title}')">Details / View More</button>
+      </div>
+    </div>`).join("");
+
+  // Projects
+  el("projectList").innerHTML = data.projects.map((p, i) => `
+    <div class="entry">
+      <div class="entry-ph">${p.placeholder}</div>
+      <div class="entry-body">
+        <div class="entry-title">${p.title}</div>
+        <div class="entry-sub">${p.sub}</div>
+        <button class="btn" onclick="alert('${p.title}')">Details / View More</button>
+      </div>
+    </div>`).join("");
+
+  // Education
+  el("eduList").innerHTML = data.education.map((e) => `
+    <div class="edu">
+      <div class="edu-school">${e.school}</div>
+      <span class="edu-years">${e.years}</span>
+      <div class="edu-program">${e.program}</div>
+    </div>`).join("");
+
+  // Skills strip
+  el("skills").innerHTML = data.skills.map((s) => `
+    <div class="skill-card">
+      <div class="skill-cat">${s.category}</div>
+      <div class="skill-tags">${s.items.map((t) => `<span class="skill-tag">${t}</span>`).join("")}</div>
+    </div>`).join("");
+
+  // Footer
+  el("footLeft").textContent = data.footer.left;
+  el("footCenter").innerHTML = `Developer: <b>${data.footer.developer.replace("Developer: ", "")}</b> <span style="opacity:.6">${data.footer.year}</span>`;
+  el("footRight").textContent = data.footer.right;
+
+  // Resume download (placeholder action)
+  el("resumeBtn").addEventListener("click", () => {
+    alert("Resume download coming soon. Add your resume link to the data object.");
+  });
+
+  // Logo click → scroll to top
+  el("logo").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  // ---- MOBILE TAB CONTENT (reuses the same data object) ----
+  el("mName").textContent = data.name;
+  el("mRole").textContent = data.role;
+  el("mBirthday").textContent = data.birthday;
+  el("mQuote").textContent = "\u201C" + data.quote + "\u201D";
+  el("mBio").innerHTML = data.bio.map((p) => `<p>${p}</p>`).join("");
+  el("mInterests").innerHTML = data.interests.map((i) => `<span class="tag">${i}</span>`).join("");
+  el("mContact").innerHTML = data.contact.map((c) =>
+    `<div class="contact-row"><span class="contact-label">${c.label}</span><span class="contact-value">${c.value}</span></div>`
+  ).join("");
+
+  el("mCerts").innerHTML = data.certifications.map((c) => `
+    <div class="entry">
+      <div class="entry-ph">${c.placeholder}</div>
+      <div class="entry-body">
+        <div class="entry-title">${c.title}</div>
+        <div class="entry-sub">${c.issuer}</div>
+        <button class="btn" onclick="alert('${c.issuer} \u2014 ${c.title}')">Details / View More</button>
+      </div>
+    </div>`).join("");
+
+  el("mEdu").innerHTML = data.education.map((e) => `
+    <div class="edu">
+      <div class="edu-school">${e.school}</div>
+      <span class="edu-years">${e.years}</span>
+      <div class="edu-program">${e.program}</div>
+    </div>`).join("");
+
+  el("mProjects").innerHTML = data.projects.map((p) => `
+    <div class="entry">
+      <div class="entry-ph">${p.placeholder}</div>
+      <div class="entry-body">
+        <div class="entry-title">${p.title}</div>
+        <div class="entry-sub">${p.sub}</div>
+        <button class="btn" onclick="alert('${p.title}')">Details / View More</button>
+      </div>
+    </div>`).join("");
+
+  el("mSkills").innerHTML = data.skills.map((s) => `
+    <div class="skill-card">
+      <div class="skill-cat">${s.category}</div>
+      <div class="skill-tags">${s.items.map((t) => `<span class="skill-tag">${t}</span>`).join("")}</div>
+    </div>`).join("");
+
+  /* ============================================================
+     MOBILE TAB SWITCHING (no page reload, instant content swap)
+     ============================================================ */
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  const tabSections = document.querySelectorAll(".mobile-section");
+  const switchTab = (name) => {
+    tabBtns.forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
+    tabSections.forEach((s) => s.classList.toggle("active", s.dataset.tab === name));
+  };
+  tabBtns.forEach((b) => b.addEventListener("click", () => switchTab(b.dataset.tab)));
+  switchTab("home"); // default tab
+
+  /* ============================================================
+     FADE-IN-ON-SCROLL
+     ============================================================ */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".fade").forEach((f) => observer.observe(f));
+</script>
+
+</body>
+</html>
